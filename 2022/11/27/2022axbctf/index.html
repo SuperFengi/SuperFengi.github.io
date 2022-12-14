@@ -1,0 +1,593 @@
+<!DOCTYPE html>
+<html lang=zh>
+<head>
+  <meta charset="utf-8">
+  
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+  <meta name="renderer" content="webkit">
+  <meta http-equiv="Cache-Control" content="no-transform" />
+  <meta http-equiv="Cache-Control" content="no-siteapp" />
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="format-detection" content="telephone=no,email=no,adress=no">
+  <!-- Color theme for statusbar -->
+  <meta name="theme-color" content="#000000" />
+  <!-- 强制页面在当前窗口以独立页面显示,防止别人在框架里调用页面 -->
+  <meta http-equiv="window-target" content="_top" />
+  
+  
+  <title>2022安洵杯 | d3f4u1t&#39;s blog</title>
+  <meta name="description" content="回家路上打的比赛，高铁站坐牢捏 CryptoCry1签到题，对四位数进行爆破即可 exp： 1234567891011from hashlib import *b&#x3D;&amp;#x27;abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789&amp;#x27;a&#x3D;&amp;#x27;qD0FP6G2kS8QcpG7&amp;#x27;for i in b:">
+<meta property="og:type" content="article">
+<meta property="og:title" content="2022安洵杯">
+<meta property="og:url" content="http://example.com/2022/11/27/2022axbctf/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="回家路上打的比赛，高铁站坐牢捏 CryptoCry1签到题，对四位数进行爆破即可 exp： 1234567891011from hashlib import *b&#x3D;&amp;#x27;abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789&amp;#x27;a&#x3D;&amp;#x27;qD0FP6G2kS8QcpG7&amp;#x27;for i in b:">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://picture-1312836458.cos.ap-beijing.myqcloud.com/img/image-20221128220814803.png">
+<meta property="og:image" content="https://picture-1312836458.cos.ap-beijing.myqcloud.com/img/image-20221128220939908.png">
+<meta property="og:image" content="https://picture-1312836458.cos.ap-beijing.myqcloud.com/img/image-20221128221326696.png">
+<meta property="og:image" content="https://picture-1312836458.cos.ap-beijing.myqcloud.com/img/image-20221128221901636.png">
+<meta property="og:image" content="https://picture-1312836458.cos.ap-beijing.myqcloud.com/img/image-20221128221940124.png">
+<meta property="og:image" content="https://picture-1312836458.cos.ap-beijing.myqcloud.com/img/image-20221128222100705.png">
+<meta property="og:image" content="https://picture-1312836458.cos.ap-beijing.myqcloud.com/img/image-20221128222245109.png">
+<meta property="og:image" content="https://picture-1312836458.cos.ap-beijing.myqcloud.com/img/image-20221128222337227.png">
+<meta property="og:image" content="https://picture-1312836458.cos.ap-beijing.myqcloud.com/img/image-20221128222409363.png">
+<meta property="og:image" content="https://picture-1312836458.cos.ap-beijing.myqcloud.com/img/image-20221128222443977.png">
+<meta property="og:image" content="https://picture-1312836458.cos.ap-beijing.myqcloud.com/img/image-20221128222522970.png">
+<meta property="og:image" content="https://picture-1312836458.cos.ap-beijing.myqcloud.com/img/image-20221128222843144.png">
+<meta property="og:image" content="https://picture-1312836458.cos.ap-beijing.myqcloud.com/img/image-20221207221705935.png">
+<meta property="og:image" content="https://picture-1312836458.cos.ap-beijing.myqcloud.com/img/image-20221207221758034.png">
+<meta property="og:image" content="https://picture-1312836458.cos.ap-beijing.myqcloud.com/img/image-20221207214408846.png">
+<meta property="og:image" content="https://picture-1312836458.cos.ap-beijing.myqcloud.com/img/image-20221207221939223.png">
+<meta property="og:image" content="https://picture-1312836458.cos.ap-beijing.myqcloud.com/img/image-20221207221404264.png">
+<meta property="article:published_time" content="2022-11-26T16:00:00.000Z">
+<meta property="article:modified_time" content="2022-12-07T14:37:55.581Z">
+<meta property="article:author" content="John Doe">
+<meta property="article:tag" content="比赛">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://picture-1312836458.cos.ap-beijing.myqcloud.com/img/image-20221128220814803.png">
+  <!-- Canonical links -->
+  <link rel="canonical" href="http://example.com/2022/11/27/2022axbctf/index.html">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png" type="image/x-icon">
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+  
+  
+  
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+
+<body class="main-center theme-purple" itemscope itemtype="http://schema.org/WebPage">
+  <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+  <div class="slimContent">
+    <div class="navbar-header">
+      
+      
+      <div class="profile-block text-center">
+        <a id="avatar" href="https://blog.csdn.net/weixin_54448259?type=blog" target="_blank">
+          <img class="img-circle img-rotate" src="/images/avatar.jpg" width="200" height="200">
+        </a>
+        <h2 id="name" class="hidden-xs hidden-sm">d3f4u1t</h2>
+        <h3 id="title" class="hidden-xs hidden-sm hidden-md">人生在勤 不索何获</h3>
+        <small id="location" class="text-muted hidden-xs hidden-sm"><i class="icon icon-map-marker"></i> China</small>
+      </div>
+      
+      <div class="search" id="search-form-wrap">
+
+    <form class="search-form sidebar-form">
+        <div class="input-group">
+            <input type="text" class="search-form-input form-control" placeholder="搜索" />
+            <span class="input-group-btn">
+                <button type="submit" class="search-form-submit btn btn-flat" onclick="return false;"><i class="icon icon-search"></i></button>
+            </span>
+        </div>
+    </form>
+    <div class="ins-search">
+  <div class="ins-search-mask"></div>
+  <div class="ins-search-container">
+    <div class="ins-input-wrapper">
+      <input type="text" class="ins-search-input" placeholder="想要查找什么..." x-webkit-speech />
+      <button type="button" class="close ins-close ins-selectable" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+    </div>
+    <div class="ins-section-wrapper">
+      <div class="ins-section-container"></div>
+    </div>
+  </div>
+</div>
+
+
+</div>
+      <button class="navbar-toggle collapsed" type="button" data-toggle="collapse" data-target="#main-navbar" aria-controls="main-navbar" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+    </div>
+    <nav id="main-navbar" class="collapse navbar-collapse" itemscope itemtype="http://schema.org/SiteNavigationElement" role="navigation">
+      <ul class="nav navbar-nav main-nav menu-highlight">
+        
+        
+        <li class="menu-item menu-item-home">
+          <a href="/.">
+            
+            <i class="icon icon-home-fill"></i>
+            
+            <span class="menu-title">总览</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives">
+            
+            <i class="icon icon-archives-fill"></i>
+            
+            <span class="menu-title">归档</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories">
+            
+            <i class="icon icon-folder"></i>
+            
+            <span class="menu-title">分类</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-links">
+          <a href="/links">
+            
+            <i class="icon icon-friendship"></i>
+            
+            <span class="menu-title">友链</span>
+          </a>
+        </li>
+        
+      </ul>
+      
+	
+    <ul class="social-links">
+    	
+        <li><a href="https://github.com/SuperFengi" target="_blank" title="Github" data-toggle=tooltip data-placement=top><i class="icon icon-github"></i></a></li>
+        
+    </ul>
+
+    </nav>
+  </div>
+</header>
+
+  
+    <aside class="sidebar" itemscope itemtype="http://schema.org/WPSideBar">
+  <div class="slimContent">
+    
+      <div class="widget">
+    <h3 class="widget-title">公告</h3>
+    <div class="widget-body">
+        <div id="board">
+            <div class="content">
+                <p>别急，慢慢来</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">分类</h3>
+    <div class="widget-body">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/ctf/">ctf</a><span class="category-list-count">7</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E9%9A%8F%E6%89%8B%E8%AE%B0/">随手记</a><span class="category-list-count">1</span></li></ul>
+    </div>
+  </div>
+
+
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">归档</h3>
+    <div class="widget-body">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/12/">十二月 2022</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/11/">十一月 2022</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/01/">一月 2022</a><span class="archive-list-count">1</span></li></ul>
+    </div>
+  </div>
+
+
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">关键词云</h3>
+    <div class="widget-body tagcloud">
+      <a href="/tags/%E5%88%B7%E9%A2%98%E8%AE%B0%E5%BD%95/" style="font-size: 13px;">刷题记录</a> <a href="/tags/%E6%AF%94%E8%B5%9B/" style="font-size: 14px;">比赛</a>
+    </div>
+  </div>
+
+    
+  </div>
+</aside>
+
+  
+  
+  <aside class="sidebar sidebar-toc collapse   in  " id="collapseToc" itemscope itemtype="http://schema.org/WPSideBar">
+  <div class="slimContent">
+    <nav id="toc" class="article-toc">
+      <h3 class="toc-title">文章目录</h3>
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Crypto"><span class="toc-number">1.</span> <span class="toc-text">Crypto</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Cry1"><span class="toc-number">1.1.</span> <span class="toc-text">Cry1</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Misc"><span class="toc-number">2.</span> <span class="toc-text">Misc</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#GumpKing"><span class="toc-number">2.1.</span> <span class="toc-text">GumpKing</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#little-thief"><span class="toc-number">2.2.</span> <span class="toc-text">little_thief</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Redcoast"><span class="toc-number">2.3.</span> <span class="toc-text">Redcoast</span></a></li></ol></li></ol>
+    </nav>
+  </div>
+</aside>
+
+<main class="main" role="main">
+  <div class="content">
+  <article id="post-2022axbctf" class="article article-type-post" itemscope itemtype="http://schema.org/BlogPosting">
+    
+    <div class="article-header">
+      
+        
+  
+    <h1 class="article-title" itemprop="name">
+      2022安洵杯
+    </h1>
+  
+
+      
+      <div class="article-meta">
+        <span class="article-date">
+    <i class="icon icon-calendar-check"></i>
+	<a href="/2022/11/27/2022axbctf/" class="article-date">
+	  <time datetime="2022-11-26T16:00:00.000Z" itemprop="datePublished">2022-11-27</time>
+	</a>
+</span>
+        
+  <span class="article-category">
+    <i class="icon icon-folder"></i>
+    <a class="article-category-link" href="/categories/ctf/">ctf</a>
+  </span>
+
+        
+  <span class="article-tag">
+    <i class="icon icon-tags"></i>
+	<a class="article-tag-link-link" href="/tags/%E6%AF%94%E8%B5%9B/" rel="tag">比赛</a>
+  </span>
+
+
+        
+	<span class="article-read hidden-xs">
+	    <i class="icon icon-eye-fill" aria-hidden="true"></i>
+	    <span id="busuanzi_container_page_pv">
+			<span id="busuanzi_value_page_pv">0</span>
+		</span>
+	</span>
+
+
+	<span class="article-read hidden-xs">
+    	<i class="icon icon-eye-fill" aria-hidden="true"></i>
+    	<span id="/2022/11/27/2022axbctf/" class="leancloud_visitors"  data-flag-title="2022安洵杯">
+			<span class="leancloud-visitors-count">0</span>
+		</span>
+    </span>
+
+        <span class="post-comment"><i class="icon icon-comment"></i> <a href="/2022/11/27/2022axbctf/#comments" class="article-comment-link">评论</a></span>
+        
+	
+		<span class="post-wordcount hidden-xs" itemprop="wordCount">字数统计: 611(字)</span>
+	
+	
+
+      </div>
+    </div>
+    <div class="article-entry marked-body" itemprop="articleBody">
+      
+        <p>回家路上打的比赛，高铁站坐牢捏</p>
+<h2 id="Crypto"><a href="#Crypto" class="headerlink" title="Crypto"></a>Crypto</h2><h3 id="Cry1"><a href="#Cry1" class="headerlink" title="Cry1"></a>Cry1</h3><p>签到题，对四位数进行爆破即可</p>
+<p>exp：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">from hashlib import *</span><br><span class="line">b=&#x27;abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789&#x27;</span><br><span class="line">a=&#x27;qD0FP6G2kS8QcpG7&#x27;</span><br><span class="line">for i in b:</span><br><span class="line">    for j in b:</span><br><span class="line">        for m in b:</span><br><span class="line">            for n in b:</span><br><span class="line">                c=str(i)+str(j)+str(m)+str(n)+a</span><br><span class="line">                d=sha256(c.encode(&#x27;utf-8&#x27;)).hexdigest()</span><br><span class="line">                if d==&#x27;86455b01fd7022f72ff93db1e9b2760cea520588db534cdeb3febb2d82a56e1e&#x27;:</span><br><span class="line">                    print(c)</span><br></pre></td></tr></table></figure>
+
+<p>不过拿flag还是比较看脸的qaq,试了无数次</p>
+<p><img src="https://picture-1312836458.cos.ap-beijing.myqcloud.com/img/image-20221128220814803.png" alt="image-20221128220814803"></p>
+<h2 id="Misc"><a href="#Misc" class="headerlink" title="Misc"></a>Misc</h2><h3 id="GumpKing"><a href="#GumpKing" class="headerlink" title="GumpKing"></a>GumpKing</h3><p><img src="https://picture-1312836458.cos.ap-beijing.myqcloud.com/img/image-20221128220939908.png" alt="image-20221128220939908"></p>
+<p>基于虚幻引擎的小游戏</p>
+<p>给的文件没什么太大帮助，一开始还以为是修改配置文件去拿flag</p>
+<p>这里使用作弊工具（cheat engine）去修改分数值</p>
+<p>游戏全屏不太好使用ce进行扫描,alt+enter切换为窗口模式</p>
+<p><img src="https://picture-1312836458.cos.ap-beijing.myqcloud.com/img/image-20221128221326696.png" alt="image-20221128221326696"></p>
+<p>思路：</p>
+<p>游戏开始前即分数为零时对0进行扫描，分数发生变化时对当前分数进行再次扫描，直到确定记录分数的地址，另开一局对该地址的值进行更改即可</p>
+<p>经过多次尝试终于确定了记录分数的地址：</p>
+<p><img src="https://picture-1312836458.cos.ap-beijing.myqcloud.com/img/image-20221128221901636.png" alt="image-20221128221901636"></p>
+<p>修改其初始值</p>
+<p><img src="https://picture-1312836458.cos.ap-beijing.myqcloud.com/img/image-20221128221940124.png" alt="image-20221128221940124"></p>
+<p>得到答案</p>
+<h3 id="little-thief"><a href="#little-thief" class="headerlink" title="little_thief"></a>little_thief</h3><p>流量包分析</p>
+<p>常规操作，导出http流查看是否存在有用信息：</p>
+<p><img src="https://picture-1312836458.cos.ap-beijing.myqcloud.com/img/image-20221128222100705.png" alt="image-20221128222100705"></p>
+<p>好，导出</p>
+<p>有密码，找</p>
+<p>追踪tcp流逐个分析</p>
+<p><img src="https://picture-1312836458.cos.ap-beijing.myqcloud.com/img/image-20221128222245109.png" alt="image-20221128222245109"></p>
+<p>拉到最上面可以发现是登录信息</p>
+<p><img src="https://picture-1312836458.cos.ap-beijing.myqcloud.com/img/image-20221128222337227.png" alt="image-20221128222337227"></p>
+<p>以游客身份登陆的信息，没啥用，再找</p>
+<p><img src="https://picture-1312836458.cos.ap-beijing.myqcloud.com/img/image-20221128222409363.png" alt="image-20221128222409363"></p>
+<p>一眼jwt</p>
+<p><img src="https://picture-1312836458.cos.ap-beijing.myqcloud.com/img/image-20221128222443977.png" alt="image-20221128222443977"></p>
+<p>好，解一下</p>
+<p><img src="https://picture-1312836458.cos.ap-beijing.myqcloud.com/img/image-20221128222522970.png" alt="image-20221128222522970"></p>
+<p>找到压缩包密码了</p>
+<p>打开flag.html，爆搜没有搜到flag,应该是隐写</p>
+<p>使用wbStego4.3open进行解密，没有密钥</p>
+<p>得</p>
+<p><img src="https://picture-1312836458.cos.ap-beijing.myqcloud.com/img/image-20221128222843144.png" alt="image-20221128222843144"></p>
+<h3 id="Redcoast"><a href="#Redcoast" class="headerlink" title="Redcoast"></a>Redcoast</h3><p>一堆二进制，转为16进制保存，得到压缩包</p>
+<p>将压缩包里的图片按25x25的大小进行排列，得到一个二维码</p>
+<p><img src="https://picture-1312836458.cos.ap-beijing.myqcloud.com/img/image-20221207221705935.png" alt="image-20221207221705935"></p>
+<p>exp1:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">from PIL import Image</span><br><span class="line">import binascii</span><br><span class="line">import base64</span><br><span class="line"></span><br><span class="line">a=Image.new(&#x27;RGB&#x27;,(2500,2500),&#x27;white&#x27;)</span><br><span class="line">n=0</span><br><span class="line">for i in range(25):</span><br><span class="line">    for j in range(25):</span><br><span class="line">        b=Image.open(f&#x27;./pic/&#123;n&#125;.png&#x27;)</span><br><span class="line">        a.paste(b,(100*j,100*i))</span><br><span class="line">        n+=1</span><br><span class="line">a.save(&#x27;6.png&#x27;)</span><br></pre></td></tr></table></figure>
+
+<p>扫描，得到压缩包密码：</p>
+<p><img src="https://picture-1312836458.cos.ap-beijing.myqcloud.com/img/image-20221207221758034.png" alt="image-20221207221758034"></p>
+<p>打开里面还是一堆数字+字母</p>
+<p>cyberchef:</p>
+<p><img src="https://picture-1312836458.cos.ap-beijing.myqcloud.com/img/image-20221207214408846.png" alt="image-20221207214408846"></p>
+<p>是一张图片，但是存在许多混乱的像素带：</p>
+<p><img src="https://picture-1312836458.cos.ap-beijing.myqcloud.com/img/image-20221207221939223.png" alt="image-20221207221939223"></p>
+<p>用stegsolve或者写脚本将每一个像素点的rgb提取并转为ascii</p>
+<p>exp2:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">from PIL import Image</span><br><span class="line">img = Image.open(r&#x27;C:\Users\19682\Desktop\3.png&#x27;)</span><br><span class="line">pixel =[]</span><br><span class="line">imgSize = img.size</span><br><span class="line">x, y = imgSize[0], imgSize[1]  # (x1200, y750)</span><br><span class="line">for i in range(y):</span><br><span class="line">    for j in range(x):</span><br><span class="line">        pixel.append(img.getpixel((j, i)))</span><br><span class="line">message = &#x27;&#x27;</span><br><span class="line">for i in pixel:</span><br><span class="line">    for j in i:</span><br><span class="line">        message += chr(j)</span><br><span class="line">with open(&#x27;flag.txt&#x27;, &#x27;a&#x27;, encoding=&#x27;utf-8&#x27;) as f:</span><br><span class="line">        f.write(message)</span><br><span class="line">        f.close()</span><br></pre></td></tr></table></figure>
+
+
+
+<p><img src="https://picture-1312836458.cos.ap-beijing.myqcloud.com/img/image-20221207221404264.png" alt="image-20221207221404264"></p>
+
+      
+    </div>
+    <div class="article-footer">
+      <blockquote class="mt-2x">
+  <ul class="post-copyright list-unstyled">
+    
+    <li class="post-copyright-link hidden-xs">
+      <strong>本文链接：</strong>
+      <a href="http://example.com/2022/11/27/2022axbctf/" title="2022安洵杯" target="_blank" rel="external">http://example.com/2022/11/27/2022axbctf/</a>
+    </li>
+    
+    <li class="post-copyright-license">
+      <strong>版权声明： </strong> 本博客所有文章除特别声明外，均采用 <a href="http://creativecommons.org/licenses/by/4.0/deed.zh" target="_blank" rel="external">CC BY 4.0 CN协议</a> 许可协议。转载请注明出处！
+    </li>
+  </ul>
+</blockquote>
+
+
+<div class="panel panel-default panel-badger">
+  <div class="panel-body">
+    <figure class="media">
+      <div class="media-left">
+        <a href="https://blog.csdn.net/weixin_54448259?type=blog" target="_blank" class="img-burn thumb-sm visible-lg">
+          <img src="/images/avatar.jpg" class="img-rounded w-full" alt="">
+        </a>
+      </div>
+      <div class="media-body">
+        <h3 class="media-heading"><a href="https://blog.csdn.net/weixin_54448259?type=blog" target="_blank"><span class="text-dark">d3f4u1t</span><small class="ml-1x">人生在勤 不索何获</small></a></h3>
+        <div>一只想变凤凰的菜鸡</div>
+      </div>
+    </figure>
+  </div>
+</div>
+
+
+    </div>
+  </article>
+  
+    
+  <section id="comments">
+  	
+      <div id="vcomments"></div>
+    
+  </section>
+
+
+  
+</div>
+
+  <nav class="bar bar-footer clearfix" data-stick-bottom>
+  <div class="bar-inner">
+  
+  <ul class="pager pull-left">
+    
+    <li class="prev">
+      <a href="/2022/12/05/2022nctf/" title="2022NCTF"><i class="icon icon-angle-left" aria-hidden="true"></i><span>&nbsp;&nbsp;上一篇</span></a>
+    </li>
+    
+    
+    <li class="next">
+      <a href="/2022/11/27/DAS11/" title="DASCTF-month11"><span>下一篇&nbsp;&nbsp;</span><i class="icon icon-angle-right" aria-hidden="true"></i></a>
+    </li>
+    
+    
+    <li class="toggle-toc">
+      <a class="toggle-btn " data-toggle="collapse" href="#collapseToc" aria-expanded="false" title="文章目录" role="button">    <span>[&nbsp;</span><span>文章目录</span>
+        <i class="text-collapsed icon icon-anchor"></i>
+        <i class="text-in icon icon-close"></i>
+        <span>]</span>
+      </a>
+    </li>
+    
+  </ul>
+  
+  
+  <!-- Button trigger modal -->
+  <button type="button" class="btn btn-fancy btn-donate pop-onhover bg-gradient-warning" data-toggle="modal" data-target="#donateModal"><span>赏</span></button>
+  <!-- <div class="wave-icon wave-icon-danger btn-donate" data-toggle="modal" data-target="#donateModal">
+    <div class="wave-circle"><span class="icon"><i class="icon icon-bill"></i></span></div>
+  </div> -->
+  
+  
+  <div class="bar-right">
+    
+    <div class="share-component" data-sites="weibo,qq,wechat" data-mobile-sites="weibo,qq,qzone"></div>
+    
+  </div>
+  </div>
+</nav>
+  
+<!-- Modal -->
+<div class="modal modal-center modal-small modal-xs-full fade" id="donateModal" tabindex="-1" role="dialog">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content donate">
+      <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+      <div class="modal-body">
+        <div class="donate-box">
+          <div class="donate-head">
+            <p>感谢您的支持，我会继续努力的!</p>
+          </div>
+          <div class="tab-content">
+            <div role="tabpanel" class="tab-pane fade active in" id="alipay">
+              <div class="donate-payimg">
+                <img src="/images/donate/alipayimg.png" alt="扫码支持" title="扫一扫" />
+              </div>
+              <p class="text-muted mv">扫码打赏，你说多少就多少</p>
+              <p class="text-grey">打开支付宝扫一扫，即可进行扫码打赏哦</p>
+            </div>
+            <div role="tabpanel" class="tab-pane fade" id="wechatpay">
+              <div class="donate-payimg">
+                <img src="/images/donate/wechat.png" alt="扫码支持" title="扫一扫" />
+              </div>
+              <p class="text-muted mv">扫码打赏，你说多少就多少</p>
+              <p class="text-grey">打开微信扫一扫，即可进行扫码打赏哦</p>
+            </div>
+          </div>
+          <div class="donate-footer">
+            <ul class="nav nav-tabs nav-justified" role="tablist">
+              <li role="presentation" class="active">
+                <a href="#alipay" id="alipay-tab" role="tab" data-toggle="tab" aria-controls="alipay" aria-expanded="true"><i class="icon icon-alipay"></i> 支付宝</a>
+              </li>
+              <li role="presentation" class="">
+                <a href="#wechatpay" role="tab" id="wechatpay-tab" data-toggle="tab" aria-controls="wechatpay" aria-expanded="false"><i class="icon icon-wepay"></i> 微信支付</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+
+</main>
+
+  <footer class="footer" itemscope itemtype="http://schema.org/WPFooter">
+	
+	
+    <ul class="social-links">
+    	
+        <li><a href="https://github.com/SuperFengi" target="_blank" title="Github" data-toggle=tooltip data-placement=top><i class="icon icon-github"></i></a></li>
+        
+    </ul>
+
+    <div class="copyright">
+    	
+    <!--    <div class="publishby">
+        	Theme by <a href="https://github.com/cofess" target="_blank"> cofess </a>base on <a href="https://github.com/cofess/hexo-theme-pure" target="_blank">pure</a>.
+        </div>  -->
+    </div>
+<div>
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+累计访问量 <span id="busuanzi_value_site_pv"></span> 次<br/>
+累计访客数 <span id="busuanzi_value_site_uv"></span > 人次
+</div>
+</footer>
+  <script src="//cdn.jsdelivr.net/npm/jquery@1.12.4/dist/jquery.min.js"></script>
+<script>
+window.jQuery || document.write('<script src="js/jquery.min.js"><\/script>')
+</script>
+
+<script src="/js/plugin.min.js"></script>
+
+
+<script src="/js/application.js"></script>
+
+
+    <script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: '文章',
+            PAGES: '页面',
+            CATEGORIES: '分类',
+            TAGS: '关键词',
+            UNTITLED: '(未命名)',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+
+<script src="/js/insight.js"></script>
+
+
+
+
+
+
+   
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+
+   
+    
+  <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/valine"></script>
+  <script type="text/javascript">
+  var GUEST = ['nick', 'mail', 'link'];
+  var meta = 'nick,mail,link';
+  meta = meta.split(',').filter(function(item) {
+    return GUEST.indexOf(item) > -1;
+  });
+  new Valine({
+    el: '#vcomments',
+    verify: false,
+    notify: false,
+    appId: 'wH3m8HIqyJM4RSle797kAsDr-gzGzoHsz',
+    appKey: 'o7WrVhUX9VgQBM8CLzc07XVe',
+    placeholder: '皮一下',
+    avatar: 'retro',
+    meta: meta,
+    pageSize: '10' || 10,
+    visitor: true
+  });
+  </script>
+
+     
+
+
+
+
+
+
+
+<!--  
+<!-- 爆炸红心效果 -->
+<canvas class="fireworks" style="position: fixed;left: 0;top: 0;z-index: 1; pointer-events: none;" ></canvas> 
+<script type="text/javascript" src="//cdn.bootcss.com/animejs/2.2.0/anime.min.js"></script> 
+<script type="text/javascript" src="/js/fireworks.js"></script>
+
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"model":{"jsonPath":"/live2dw/assets/hijiki.model.json"},"display":{"position":"right","width":150,"height":300},"mobile":{"show":false},"log":false,"pluginJsPath":"lib/","pluginModelPath":"assets/","pluginRootPath":"live2dw/","tagMode":false});</script></body>
+</html>
