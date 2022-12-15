@@ -6,7 +6,7 @@
   <link href="http://example.com/atom.xml" rel="self"/>
   
   <link href="http://example.com/"/>
-  <updated>2022-12-12T15:17:40.202Z</updated>
+  <updated>2022-12-12T15:17:43.541Z</updated>
   <id>http://example.com/</id>
   
   <author>
@@ -15,31 +15,6 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
-  
-  <entry>
-    <title>ShowTime</title>
-    <link href="http://example.com/2022/12/12/ShowTime/"/>
-    <id>http://example.com/2022/12/12/ShowTime/</id>
-    <published>2022-12-11T16:00:00.000Z</published>
-    <updated>2022-12-12T15:17:40.202Z</updated>
-    
-    <content type="html"><![CDATA[<p>Tokeii师傅在i春秋上出的一道题，挺新奇的，记录一下</p><p><img src="https://picture-1312836458.cos.ap-beijing.myqcloud.com/img/image-20221212225834839.png" alt="image-20221212225834839"></p><p>思路源于他的这篇<a href="https://blog.csdn.net/u010418732/article/details/125178250?spm=1001.2014.3001.5502">博客</a></p><p>下载后的附件，名字都是base64编码的，写脚本改名</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">p=r&#x27;C:\Users\19682\Desktop\stego&#123;&#125;&#x27;.format(&#x27;\\&#x27;)</span><br><span class="line">for i in filelist:</span><br><span class="line">    b=i[:-4]</span><br><span class="line">    a=base64.b64decode(b)</span><br><span class="line">    c=a.decode(&#x27;UTF-8&#x27;)</span><br><span class="line">    d=os.rename(p+i,p+c+&#x27;.txt&#x27;)</span><br></pre></td></tr></table></figure><p><img src="https://picture-1312836458.cos.ap-beijing.myqcloud.com/img/image-20221212230030820.png" alt="image-20221212230030820"></p><p>提取每个文件修改时间戳的最后一位</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">import os</span><br><span class="line">for i in range(925):</span><br><span class="line">    filename = r&quot;C:\Users\19682\Desktop\stego\&#123;&#125;.txt&quot;.format(i)</span><br><span class="line">    file_attr = os.stat(filename)#读取文件属性</span><br><span class="line">    create_time = str(file_attr.st_mtime)#获取修改时间</span><br><span class="line">    # print(create_time)</span><br><span class="line">    print(int(create_time[9:10]),end=&#x27;&#x27;)</span><br></pre></td></tr></table></figure><p>将数字转字符串</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">from numlib import *</span><br><span class="line">a=1774674557824868457499061032120895601890679002715594296727500711025736399907449201395656994728720806964341210442762667972497818255944821704615312664370539310702290900650405564784263444957700019095984690444788205828883771674746086773438649406269794894162345496646835920006634655790770023591140601368298957582899939643842210521270729599027362038934484123582308984705653794101554567102555263227506545092094002357706759680210528515040207139078660910227189154726011658251525180920105580373673544062554076786313766549322038531510544996944293029774158028502472577209425526755227464619459049995527828690565067923263594211663575768777749797684020900044480050567580861721772084896501068329188549341576999149193729307442677823665245077311594986800407693715823937313065541334395357854650051549808442561638033762084503042808464197473992558178954715114984494063565778497512453063854507422273051449037068016131470694073345956605305655737661</span><br><span class="line">print (n2s(a))</span><br></pre></td></tr></table></figure><p>得到一串base64</p><p><img src="https://picture-1312836458.cos.ap-beijing.myqcloud.com/img/image-20221212230901285.png" alt="image-20221212230901285"></p><p>拿到cyberchef解码保存为7z文件解压后打开即得flag</p>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;p&gt;Tokeii师傅在i春秋上出的一道题，挺新奇的，记录一下&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;https://picture-1312836458.cos.ap-beijing.myqcloud.com/img/image-20221212225834839.png&quot; alt</summary>
-      
-    
-    
-    
-    <category term="ctf" scheme="http://example.com/categories/ctf/"/>
-    
-    
-    <category term="刷题记录" scheme="http://example.com/tags/%E5%88%B7%E9%A2%98%E8%AE%B0%E5%BD%95/"/>
-    
-  </entry>
   
   <entry>
     <title>⎛⎝龙猫⎠⎞</title>
@@ -59,6 +34,31 @@
 &lt;p&gt;打不开的图片的16进制头与正常jpg比较后发现规律&lt;/p&gt;
 &lt;p&gt;0101修改为正常图片得到：&lt;/p&gt;
 &lt;p&gt;&lt;img src=&quot;ht</summary>
+      
+    
+    
+    
+    <category term="ctf" scheme="http://example.com/categories/ctf/"/>
+    
+    
+    <category term="刷题记录" scheme="http://example.com/tags/%E5%88%B7%E9%A2%98%E8%AE%B0%E5%BD%95/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>ShowTime</title>
+    <link href="http://example.com/2022/12/12/ShowTime/"/>
+    <id>http://example.com/2022/12/12/ShowTime/</id>
+    <published>2022-12-11T16:00:00.000Z</published>
+    <updated>2022-12-12T15:17:40.202Z</updated>
+    
+    <content type="html"><![CDATA[<p>Tokeii师傅在i春秋上出的一道题，挺新奇的，记录一下</p><p><img src="https://picture-1312836458.cos.ap-beijing.myqcloud.com/img/image-20221212225834839.png" alt="image-20221212225834839"></p><p>思路源于他的这篇<a href="https://blog.csdn.net/u010418732/article/details/125178250?spm=1001.2014.3001.5502">博客</a></p><p>下载后的附件，名字都是base64编码的，写脚本改名</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">p=r&#x27;C:\Users\19682\Desktop\stego&#123;&#125;&#x27;.format(&#x27;\\&#x27;)</span><br><span class="line">for i in filelist:</span><br><span class="line">    b=i[:-4]</span><br><span class="line">    a=base64.b64decode(b)</span><br><span class="line">    c=a.decode(&#x27;UTF-8&#x27;)</span><br><span class="line">    d=os.rename(p+i,p+c+&#x27;.txt&#x27;)</span><br></pre></td></tr></table></figure><p><img src="https://picture-1312836458.cos.ap-beijing.myqcloud.com/img/image-20221212230030820.png" alt="image-20221212230030820"></p><p>提取每个文件修改时间戳的最后一位</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">import os</span><br><span class="line">for i in range(925):</span><br><span class="line">    filename = r&quot;C:\Users\19682\Desktop\stego\&#123;&#125;.txt&quot;.format(i)</span><br><span class="line">    file_attr = os.stat(filename)#读取文件属性</span><br><span class="line">    create_time = str(file_attr.st_mtime)#获取修改时间</span><br><span class="line">    # print(create_time)</span><br><span class="line">    print(int(create_time[9:10]),end=&#x27;&#x27;)</span><br></pre></td></tr></table></figure><p>将数字转字符串</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">from numlib import *</span><br><span class="line">a=1774674557824868457499061032120895601890679002715594296727500711025736399907449201395656994728720806964341210442762667972497818255944821704615312664370539310702290900650405564784263444957700019095984690444788205828883771674746086773438649406269794894162345496646835920006634655790770023591140601368298957582899939643842210521270729599027362038934484123582308984705653794101554567102555263227506545092094002357706759680210528515040207139078660910227189154726011658251525180920105580373673544062554076786313766549322038531510544996944293029774158028502472577209425526755227464619459049995527828690565067923263594211663575768777749797684020900044480050567580861721772084896501068329188549341576999149193729307442677823665245077311594986800407693715823937313065541334395357854650051549808442561638033762084503042808464197473992558178954715114984494063565778497512453063854507422273051449037068016131470694073345956605305655737661</span><br><span class="line">print (n2s(a))</span><br></pre></td></tr></table></figure><p>得到一串base64</p><p><img src="https://picture-1312836458.cos.ap-beijing.myqcloud.com/img/image-20221212230901285.png" alt="image-20221212230901285"></p><p>拿到cyberchef解码保存为7z文件解压后打开即得flag</p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;p&gt;Tokeii师傅在i春秋上出的一道题，挺新奇的，记录一下&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://picture-1312836458.cos.ap-beijing.myqcloud.com/img/image-20221212225834839.png&quot; alt</summary>
       
     
     
