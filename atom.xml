@@ -71,6 +71,31 @@
   </entry>
   
   <entry>
+    <title>2022RCTF</title>
+    <link href="http://example.com/2022/12/10/2022rctf/"/>
+    <id>http://example.com/2022/12/10/2022rctf/</id>
+    <published>2022-12-09T16:00:00.000Z</published>
+    <updated>2022-12-14T14:46:01.936Z</updated>
+    
+    <content type="html"><![CDATA[<p>坐牢坐牢坐牢orz</p><h1 id="ez-alient"><a href="#ez-alient" class="headerlink" title="ez_alient"></a>ez_alient</h1><p>alien.bmp文件尾部存在压缩包解压密码</p><p>解压后文件查看文件头发现为可执行文件，运行后发现为pygame即pyexe</p><p>使用pyinstxtractor.py解包可得pyc文件</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">python pyinstxtractor.py alien_invasion.exe</span><br></pre></td></tr></table></figure><p><img src="https://picture-1312836458.cos.ap-beijing.myqcloud.com/img/image-20221214221459545.png" alt="image-20221214221459545"></p><p>同路径下会出现的[xxx.exe]_extracted的文件夹里面就包含了主程序main，但不带任何后缀，我们要反编译的就是这个文件，其他的都是依赖库，如PYZ-extracted文件夹里的都是库文件（用于import）。</p><p><img src="https://picture-1312836458.cos.ap-beijing.myqcloud.com/img/image-20221214221835997.png" alt="image-20221214221835997"></p><p>至于为什么该文件不是.pyc文件，应该是pyinstxtractor的一点不足，转换出来的主程序格式不对，因此还需要对其进行手动修复。<br>这里了解下不同版本python下pyc文件头的结构：</p><p>Python3.3以下的版本中，只有<strong>Magic Number</strong>和<strong>四位时间戳</strong>（共8字节）<br>Python3.3到Python3.7（不包含3.7）版本中，只有<strong>Magic Numbe</strong>r和<strong>八位时间戳</strong> + <strong>大小信息</strong>（共12字节）<br>Python3.7及以上版本的编译后二进制文件中，头部除了<strong>四字节Magic Number</strong>，还有<strong>四个字节的空位</strong>和<strong>八个字节的时间戳</strong> + <strong>大小信息</strong>（共16字节），后者（指后12字节）对文件反编译没有影响，全部填充0即可</p><p><strong>python Magic Number对照表</strong></p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">enum PycMagic &#123;    </span><br><span class="line">MAGIC_1_0 = 0x00999902,    </span><br><span class="line">MAGIC_1_1 = 0x00999903, /* Also covers 1.2 */    </span><br><span class="line">MAGIC_1_3 = 0x0A0D2E89,    </span><br><span class="line">MAGIC_1_4 = 0x0A0D1704,    </span><br><span class="line">MAGIC_1_5 = 0x0A0D4E99,    </span><br><span class="line">MAGIC_1_6 = 0x0A0DC4FC,     </span><br><span class="line">MAGIC_2_0 = 0x0A0DC687,    </span><br><span class="line">MAGIC_2_1 = 0x0A0DEB2A,    </span><br><span class="line">MAGIC_2_2 = 0x0A0DED2D,    </span><br><span class="line">MAGIC_2_3 = 0x0A0DF23B,    </span><br><span class="line">MAGIC_2_4 = 0x0A0DF26D,    </span><br><span class="line">MAGIC_2_5 = 0x0A0DF2B3,    </span><br><span class="line">MAGIC_2_6 = 0x0A0DF2D1,    </span><br><span class="line">MAGIC_2_7 = 0x0A0DF303,     </span><br><span class="line">MAGIC_3_0 = 0x0A0D0C3A,    </span><br><span class="line">MAGIC_3_1 = 0x0A0D0C4E,    </span><br><span class="line">MAGIC_3_2 = 0x0A0D0C6C,    </span><br><span class="line">MAGIC_3_3 = 0x0A0D0C9E,    </span><br><span class="line">MAGIC_3_4 = 0x0A0D0CEE,    </span><br><span class="line">MAGIC_3_5 = 0x0A0D0D16,    </span><br><span class="line">MAGIC_3_5_3 = 0x0A0D0D17,    </span><br><span class="line">MAGIC_3_6 = 0x0A0D0D33,    </span><br><span class="line">MAGIC_3_7 = 0x0A0D0D42,    </span><br><span class="line">MAGIC_3_8 = 0x0A0D0D55,    </span><br><span class="line">MAGIC_3_9 = 0x0A0D0D61, &#125;;</span><br></pre></td></tr></table></figure><p>这里即使解包出来的pyc也没办法直接逆</p><p><img src="https://picture-1312836458.cos.ap-beijing.myqcloud.com/img/image-20221214222400577.png" alt="image-20221214222400577"></p><p><img src="https://picture-1312836458.cos.ap-beijing.myqcloud.com/img/image-20221214222425476.png" alt="image-20221214222425476"></p><p>以上内容大致意思就是文件头格式不对（<a href="https://blog.csdn.net/weixin_43335392/article/details/125124297">链接</a>）</p><p>依照上面的规则修改如下：</p><p><img src="https://picture-1312836458.cos.ap-beijing.myqcloud.com/img/image-20221214222626053.png" alt="image-20221214222626053"></p><p><img src="https://picture-1312836458.cos.ap-beijing.myqcloud.com/img/image-20221214222641799.png" alt="image-20221214222641799"></p><p>拿第一行16个字节去修主函数即可成功逆向</p><p>逆完后面的步骤就比较简单了，主文件及其中引用到的库函数中均存在一个base64后的片段，解码后拼接即可。</p><h1 id="ez-pvz"><a href="#ez-pvz" class="headerlink" title="ez_pvz"></a>ez_pvz</h1><p>逆向大佬都是ida梭的orz</p><p>我当时只用ce通了一关，一直想锁定阳光的基址（奈何失败qaq</p><p>做法：</p><p>第一关：搜100，种豌豆，搜0，确定阳光临时地址</p><p>第二关：开局搜150，几十个数，挨个改为0，前几个改完查看游戏就发现找到了双豌豆和樱桃炸弹的费用地址，修改为零即可</p><p>第三关：做法同第二关，找到费用地址后查看内存，可以发现动态变化的内存地址即cd的变化地址，其<strong>后面</strong>的一个字节也会随着前面的变化规律变化，观察一会发现会从01（满cd）递增到10（无cd），一直修改为10即可实现无cd</p><p><img src="https://picture-1312836458.cos.ap-beijing.myqcloud.com/img/image-20221214224559923.png" alt="image-20221214224559923"></p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;p&gt;坐牢坐牢坐牢orz&lt;/p&gt;
+&lt;h1 id=&quot;ez-alient&quot;&gt;&lt;a href=&quot;#ez-alient&quot; class=&quot;headerlink&quot; title=&quot;ez_alient&quot;&gt;&lt;/a&gt;ez_alient&lt;/h1&gt;&lt;p&gt;alien.bmp文件尾部存在压缩包解压密码&lt;/p</summary>
+      
+    
+    
+    
+    <category term="ctf" scheme="http://example.com/categories/ctf/"/>
+    
+    
+    <category term="比赛" scheme="http://example.com/tags/%E6%AF%94%E8%B5%9B/"/>
+    
+  </entry>
+  
+  <entry>
     <title>首届“天权信安&amp;catf1ag”网络安全联合公开赛</title>
     <link href="http://example.com/2022/12/09/catflag/"/>
     <id>http://example.com/2022/12/09/catflag/</id>
