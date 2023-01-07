@@ -6,7 +6,7 @@
   <link href="http://example.com/atom.xml" rel="self"/>
   
   <link href="http://example.com/"/>
-  <updated>2023-01-03T02:56:27.283Z</updated>
+  <updated>2023-01-07T14:53:00.276Z</updated>
   <id>http://example.com/</id>
   
   <author>
@@ -15,6 +15,31 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>记一次真实钓鱼软件案例</title>
+    <link href="http://example.com/2023/01/07/apk/"/>
+    <id>http://example.com/2023/01/07/apk/</id>
+    <published>2023-01-06T16:00:00.000Z</published>
+    <updated>2023-01-07T14:53:00.276Z</updated>
+    
+    <content type="html"><![CDATA[<p>事情起因：<br>笔者在科学上网时发现不少蓝鸟博主都在转发着格式相似的链接邀请信息，且定时会更新内容但格式不变，怀疑存在钓鱼诈骗团伙，而这些博主充当着鱼饵的角色，因此决定探究其实施诈骗的犯罪模式</p><p><img src="https://picture-1312836458.cos.ap-beijing.myqcloud.com/img/image-20230106105315346.png" alt="image-20230106105315346"></p><p><img src="https://picture-1312836458.cos.ap-beijing.myqcloud.com/img/image-20230106110703678.png" alt="image-20230106110703678"></p><p><img src="https://picture-1312836458.cos.ap-beijing.myqcloud.com/img/image-20230106111041082.png" alt="image-20230106111041082"></p><p>添加为好友进行聊天</p><p>基本上每一个都是聊几句就给你发一个钓鱼apk</p><p><img src="https://picture-1312836458.cos.ap-beijing.myqcloud.com/img/image-20230107214937400.png" alt="image-20230107214937400"></p><p>拿来分析</p><p><img src="https://picture-1312836458.cos.ap-beijing.myqcloud.com/img/image-20230107215233258.png" alt="image-20230107215233258"></p><p><img src="https://picture-1312836458.cos.ap-beijing.myqcloud.com/img/image-20230107220556644.png" alt="image-20230107220556644"></p><p>可以，需要权限全开，你干脆查我户口吧</p><p>回传信息就不测试了，基本上它要求你开的都会回传</p><p><img src="https://picture-1312836458.cos.ap-beijing.myqcloud.com/img/image-20230107215451340.png" alt="image-20230107215451340"></p><p>基本上都是需要手机号以及对方提供给你的邀请码来登陆</p><p>但事实上并没有看到实现登陆跳转的函数。。。</p><p>并且进入软件就需要权限全开，说白了就是一个只有收集你信息并回传功能的apk</p><p>不过我觉得最蠢的是另一个apk</p><p><img src="https://picture-1312836458.cos.ap-beijing.myqcloud.com/img/image-20230107215954630.png" alt="image-20230107215954630"></p><p>静态计时。。。</p><p>并且无论如何最后都会提醒你不兼容，不过当你看到这句话时基本上对面后台已经把你信息拿到了</p><p>抓包分析</p><p><img src="https://picture-1312836458.cos.ap-beijing.myqcloud.com/img/image-20230107220639747.png" alt="image-20230107220639747"></p><p>看到接受方的域名以及ip,因为并没有使用cdn节点，因此这个ip就是服务器的真实ip地址</p><p><img src="https://picture-1312836458.cos.ap-beijing.myqcloud.com/img/image-20230107220835474.png" alt="image-20230107220835474"></p><p>可以看到是这家公司提供服务,但这不是一家提供网站监控的公司吗，这里不太懂。。。</p><p>即使这样还是拿不到钓鱼团伙的信息，这也是现在电诈一个不好抓的原因qwq</p><p>还有切记不要给软件授权</p><p>对方在拿到你的信息后不会第一时间进行勒索，而是会继续引诱你进行视频通话录取你的人脸视频</p><p>最终会以你的大致地址信息已以及通讯录和你的视频为要挟，并警告你已经向你的手机中植入了红色代码（？我用的虚拟机，你植尼玛呢，还有为什么必须是红色代码，过年喜庆是吧</p><p>所谓”红色代码“的实现方法十分简单，就是对方使用大量短信和拨打攻击你的手机号，由于接受短信和拨打是手机的被动行为，再加上现在使用的都是虚拟基站，因此这种攻击没有很好的防御手段，最好的办法就是停止使用那张电话卡一段时间，毕竟对方向你ddos也是需要成本的，更不会在看不到收益的情况下永久攻击你</p><p>最后，希望大家都能科学上网，不要心存幻想，共创绿色网络空间</p><p><img src="https://picture-1312836458.cos.ap-beijing.myqcloud.com/img/image-20230107223541872.png" alt="image-20230107223541872"></p><p>你问我怎么知道上面这些东西的？</p><p>我只能说我没有被骗，甚至套来了对方的手机号（不过很可能是上一个受害者的</p><p><img src="https://picture-1312836458.cos.ap-beijing.myqcloud.com/img/image-20230107223302357.png" alt="image-20230107223302357"></p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;p&gt;事情起因：&lt;br&gt;笔者在科学上网时发现不少蓝鸟博主都在转发着格式相似的链接邀请信息，且定时会更新内容但格式不变，怀疑存在钓鱼诈骗团伙，而这些博主充当着鱼饵的角色，因此决定探究其实施诈骗的犯罪模式&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://picture-131283</summary>
+      
+    
+    
+    
+    <category term="取证" scheme="http://example.com/categories/%E5%8F%96%E8%AF%81/"/>
+    
+    
+    <category term="随手记" scheme="http://example.com/tags/%E9%9A%8F%E6%89%8B%E8%AE%B0/"/>
+    
+  </entry>
   
   <entry>
     <title>NepnepxCATCTF</title>
@@ -198,31 +223,6 @@
   </entry>
   
   <entry>
-    <title>2022安洵杯</title>
-    <link href="http://example.com/2022/11/27/2022axbctf/"/>
-    <id>http://example.com/2022/11/27/2022axbctf/</id>
-    <published>2022-11-26T16:00:00.000Z</published>
-    <updated>2022-12-07T14:37:55.581Z</updated>
-    
-    <content type="html"><![CDATA[<p>回家路上打的比赛，高铁站坐牢捏</p><h2 id="Crypto"><a href="#Crypto" class="headerlink" title="Crypto"></a>Crypto</h2><h3 id="Cry1"><a href="#Cry1" class="headerlink" title="Cry1"></a>Cry1</h3><p>签到题，对四位数进行爆破即可</p><p>exp：</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">from hashlib import *</span><br><span class="line">b=&#x27;abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789&#x27;</span><br><span class="line">a=&#x27;qD0FP6G2kS8QcpG7&#x27;</span><br><span class="line">for i in b:</span><br><span class="line">    for j in b:</span><br><span class="line">        for m in b:</span><br><span class="line">            for n in b:</span><br><span class="line">                c=str(i)+str(j)+str(m)+str(n)+a</span><br><span class="line">                d=sha256(c.encode(&#x27;utf-8&#x27;)).hexdigest()</span><br><span class="line">                if d==&#x27;86455b01fd7022f72ff93db1e9b2760cea520588db534cdeb3febb2d82a56e1e&#x27;:</span><br><span class="line">                    print(c)</span><br></pre></td></tr></table></figure><p>不过拿flag还是比较看脸的qaq,试了无数次</p><p><img src="https://picture-1312836458.cos.ap-beijing.myqcloud.com/img/image-20221128220814803.png" alt="image-20221128220814803"></p><h2 id="Misc"><a href="#Misc" class="headerlink" title="Misc"></a>Misc</h2><h3 id="GumpKing"><a href="#GumpKing" class="headerlink" title="GumpKing"></a>GumpKing</h3><p><img src="https://picture-1312836458.cos.ap-beijing.myqcloud.com/img/image-20221128220939908.png" alt="image-20221128220939908"></p><p>基于虚幻引擎的小游戏</p><p>给的文件没什么太大帮助，一开始还以为是修改配置文件去拿flag</p><p>这里使用作弊工具（cheat engine）去修改分数值</p><p>游戏全屏不太好使用ce进行扫描,alt+enter切换为窗口模式</p><p><img src="https://picture-1312836458.cos.ap-beijing.myqcloud.com/img/image-20221128221326696.png" alt="image-20221128221326696"></p><p>思路：</p><p>游戏开始前即分数为零时对0进行扫描，分数发生变化时对当前分数进行再次扫描，直到确定记录分数的地址，另开一局对该地址的值进行更改即可</p><p>经过多次尝试终于确定了记录分数的地址：</p><p><img src="https://picture-1312836458.cos.ap-beijing.myqcloud.com/img/image-20221128221901636.png" alt="image-20221128221901636"></p><p>修改其初始值</p><p><img src="https://picture-1312836458.cos.ap-beijing.myqcloud.com/img/image-20221128221940124.png" alt="image-20221128221940124"></p><p>得到答案</p><h3 id="little-thief"><a href="#little-thief" class="headerlink" title="little_thief"></a>little_thief</h3><p>流量包分析</p><p>常规操作，导出http流查看是否存在有用信息：</p><p><img src="https://picture-1312836458.cos.ap-beijing.myqcloud.com/img/image-20221128222100705.png" alt="image-20221128222100705"></p><p>好，导出</p><p>有密码，找</p><p>追踪tcp流逐个分析</p><p><img src="https://picture-1312836458.cos.ap-beijing.myqcloud.com/img/image-20221128222245109.png" alt="image-20221128222245109"></p><p>拉到最上面可以发现是登录信息</p><p><img src="https://picture-1312836458.cos.ap-beijing.myqcloud.com/img/image-20221128222337227.png" alt="image-20221128222337227"></p><p>以游客身份登陆的信息，没啥用，再找</p><p><img src="https://picture-1312836458.cos.ap-beijing.myqcloud.com/img/image-20221128222409363.png" alt="image-20221128222409363"></p><p>一眼jwt</p><p><img src="https://picture-1312836458.cos.ap-beijing.myqcloud.com/img/image-20221128222443977.png" alt="image-20221128222443977"></p><p>好，解一下</p><p><img src="https://picture-1312836458.cos.ap-beijing.myqcloud.com/img/image-20221128222522970.png" alt="image-20221128222522970"></p><p>找到压缩包密码了</p><p>打开flag.html，爆搜没有搜到flag,应该是隐写</p><p>使用wbStego4.3open进行解密，没有密钥</p><p>得</p><p><img src="https://picture-1312836458.cos.ap-beijing.myqcloud.com/img/image-20221128222843144.png" alt="image-20221128222843144"></p><h3 id="Redcoast"><a href="#Redcoast" class="headerlink" title="Redcoast"></a>Redcoast</h3><p>一堆二进制，转为16进制保存，得到压缩包</p><p>将压缩包里的图片按25x25的大小进行排列，得到一个二维码</p><p><img src="https://picture-1312836458.cos.ap-beijing.myqcloud.com/img/image-20221207221705935.png" alt="image-20221207221705935"></p><p>exp1:</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">from PIL import Image</span><br><span class="line">import binascii</span><br><span class="line">import base64</span><br><span class="line"></span><br><span class="line">a=Image.new(&#x27;RGB&#x27;,(2500,2500),&#x27;white&#x27;)</span><br><span class="line">n=0</span><br><span class="line">for i in range(25):</span><br><span class="line">    for j in range(25):</span><br><span class="line">        b=Image.open(f&#x27;./pic/&#123;n&#125;.png&#x27;)</span><br><span class="line">        a.paste(b,(100*j,100*i))</span><br><span class="line">        n+=1</span><br><span class="line">a.save(&#x27;6.png&#x27;)</span><br></pre></td></tr></table></figure><p>扫描，得到压缩包密码：</p><p><img src="https://picture-1312836458.cos.ap-beijing.myqcloud.com/img/image-20221207221758034.png" alt="image-20221207221758034"></p><p>打开里面还是一堆数字+字母</p><p>cyberchef:</p><p><img src="https://picture-1312836458.cos.ap-beijing.myqcloud.com/img/image-20221207214408846.png" alt="image-20221207214408846"></p><p>是一张图片，但是存在许多混乱的像素带：</p><p><img src="https://picture-1312836458.cos.ap-beijing.myqcloud.com/img/image-20221207221939223.png" alt="image-20221207221939223"></p><p>用stegsolve或者写脚本将每一个像素点的rgb提取并转为ascii</p><p>exp2:</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">from PIL import Image</span><br><span class="line">img = Image.open(r&#x27;C:\Users\19682\Desktop\3.png&#x27;)</span><br><span class="line">pixel =[]</span><br><span class="line">imgSize = img.size</span><br><span class="line">x, y = imgSize[0], imgSize[1]  # (x1200, y750)</span><br><span class="line">for i in range(y):</span><br><span class="line">    for j in range(x):</span><br><span class="line">        pixel.append(img.getpixel((j, i)))</span><br><span class="line">message = &#x27;&#x27;</span><br><span class="line">for i in pixel:</span><br><span class="line">    for j in i:</span><br><span class="line">        message += chr(j)</span><br><span class="line">with open(&#x27;flag.txt&#x27;, &#x27;a&#x27;, encoding=&#x27;utf-8&#x27;) as f:</span><br><span class="line">        f.write(message)</span><br><span class="line">        f.close()</span><br></pre></td></tr></table></figure><p><img src="https://picture-1312836458.cos.ap-beijing.myqcloud.com/img/image-20221207221404264.png" alt="image-20221207221404264"></p>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;p&gt;回家路上打的比赛，高铁站坐牢捏&lt;/p&gt;
-&lt;h2 id=&quot;Crypto&quot;&gt;&lt;a href=&quot;#Crypto&quot; class=&quot;headerlink&quot; title=&quot;Crypto&quot;&gt;&lt;/a&gt;Crypto&lt;/h2&gt;&lt;h3 id=&quot;Cry1&quot;&gt;&lt;a href=&quot;#Cry1&quot; clas</summary>
-      
-    
-    
-    
-    <category term="ctf" scheme="http://example.com/categories/ctf/"/>
-    
-    
-    <category term="比赛" scheme="http://example.com/tags/%E6%AF%94%E8%B5%9B/"/>
-    
-  </entry>
-  
-  <entry>
     <title>DASCTF-month11</title>
     <link href="http://example.com/2022/11/27/DAS11/"/>
     <id>http://example.com/2022/11/27/DAS11/</id>
@@ -236,6 +236,31 @@
       
     <summary type="html">&lt;h2 id=&quot;七仙女下凡&quot;&gt;&lt;a href=&quot;#七仙女下凡&quot; class=&quot;headerlink&quot; title=&quot;七仙女下凡&quot;&gt;&lt;/a&gt;七仙女下凡&lt;/h2&gt;&lt;p&gt;附件给了6张包含内容相同的图片&lt;/p&gt;
 &lt;p&gt;&lt;img src=&quot;https://picture-131283645</summary>
+      
+    
+    
+    
+    <category term="ctf" scheme="http://example.com/categories/ctf/"/>
+    
+    
+    <category term="比赛" scheme="http://example.com/tags/%E6%AF%94%E8%B5%9B/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>2022安洵杯</title>
+    <link href="http://example.com/2022/11/27/2022axbctf/"/>
+    <id>http://example.com/2022/11/27/2022axbctf/</id>
+    <published>2022-11-26T16:00:00.000Z</published>
+    <updated>2022-12-07T14:37:55.581Z</updated>
+    
+    <content type="html"><![CDATA[<p>回家路上打的比赛，高铁站坐牢捏</p><h2 id="Crypto"><a href="#Crypto" class="headerlink" title="Crypto"></a>Crypto</h2><h3 id="Cry1"><a href="#Cry1" class="headerlink" title="Cry1"></a>Cry1</h3><p>签到题，对四位数进行爆破即可</p><p>exp：</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">from hashlib import *</span><br><span class="line">b=&#x27;abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789&#x27;</span><br><span class="line">a=&#x27;qD0FP6G2kS8QcpG7&#x27;</span><br><span class="line">for i in b:</span><br><span class="line">    for j in b:</span><br><span class="line">        for m in b:</span><br><span class="line">            for n in b:</span><br><span class="line">                c=str(i)+str(j)+str(m)+str(n)+a</span><br><span class="line">                d=sha256(c.encode(&#x27;utf-8&#x27;)).hexdigest()</span><br><span class="line">                if d==&#x27;86455b01fd7022f72ff93db1e9b2760cea520588db534cdeb3febb2d82a56e1e&#x27;:</span><br><span class="line">                    print(c)</span><br></pre></td></tr></table></figure><p>不过拿flag还是比较看脸的qaq,试了无数次</p><p><img src="https://picture-1312836458.cos.ap-beijing.myqcloud.com/img/image-20221128220814803.png" alt="image-20221128220814803"></p><h2 id="Misc"><a href="#Misc" class="headerlink" title="Misc"></a>Misc</h2><h3 id="GumpKing"><a href="#GumpKing" class="headerlink" title="GumpKing"></a>GumpKing</h3><p><img src="https://picture-1312836458.cos.ap-beijing.myqcloud.com/img/image-20221128220939908.png" alt="image-20221128220939908"></p><p>基于虚幻引擎的小游戏</p><p>给的文件没什么太大帮助，一开始还以为是修改配置文件去拿flag</p><p>这里使用作弊工具（cheat engine）去修改分数值</p><p>游戏全屏不太好使用ce进行扫描,alt+enter切换为窗口模式</p><p><img src="https://picture-1312836458.cos.ap-beijing.myqcloud.com/img/image-20221128221326696.png" alt="image-20221128221326696"></p><p>思路：</p><p>游戏开始前即分数为零时对0进行扫描，分数发生变化时对当前分数进行再次扫描，直到确定记录分数的地址，另开一局对该地址的值进行更改即可</p><p>经过多次尝试终于确定了记录分数的地址：</p><p><img src="https://picture-1312836458.cos.ap-beijing.myqcloud.com/img/image-20221128221901636.png" alt="image-20221128221901636"></p><p>修改其初始值</p><p><img src="https://picture-1312836458.cos.ap-beijing.myqcloud.com/img/image-20221128221940124.png" alt="image-20221128221940124"></p><p>得到答案</p><h3 id="little-thief"><a href="#little-thief" class="headerlink" title="little_thief"></a>little_thief</h3><p>流量包分析</p><p>常规操作，导出http流查看是否存在有用信息：</p><p><img src="https://picture-1312836458.cos.ap-beijing.myqcloud.com/img/image-20221128222100705.png" alt="image-20221128222100705"></p><p>好，导出</p><p>有密码，找</p><p>追踪tcp流逐个分析</p><p><img src="https://picture-1312836458.cos.ap-beijing.myqcloud.com/img/image-20221128222245109.png" alt="image-20221128222245109"></p><p>拉到最上面可以发现是登录信息</p><p><img src="https://picture-1312836458.cos.ap-beijing.myqcloud.com/img/image-20221128222337227.png" alt="image-20221128222337227"></p><p>以游客身份登陆的信息，没啥用，再找</p><p><img src="https://picture-1312836458.cos.ap-beijing.myqcloud.com/img/image-20221128222409363.png" alt="image-20221128222409363"></p><p>一眼jwt</p><p><img src="https://picture-1312836458.cos.ap-beijing.myqcloud.com/img/image-20221128222443977.png" alt="image-20221128222443977"></p><p>好，解一下</p><p><img src="https://picture-1312836458.cos.ap-beijing.myqcloud.com/img/image-20221128222522970.png" alt="image-20221128222522970"></p><p>找到压缩包密码了</p><p>打开flag.html，爆搜没有搜到flag,应该是隐写</p><p>使用wbStego4.3open进行解密，没有密钥</p><p>得</p><p><img src="https://picture-1312836458.cos.ap-beijing.myqcloud.com/img/image-20221128222843144.png" alt="image-20221128222843144"></p><h3 id="Redcoast"><a href="#Redcoast" class="headerlink" title="Redcoast"></a>Redcoast</h3><p>一堆二进制，转为16进制保存，得到压缩包</p><p>将压缩包里的图片按25x25的大小进行排列，得到一个二维码</p><p><img src="https://picture-1312836458.cos.ap-beijing.myqcloud.com/img/image-20221207221705935.png" alt="image-20221207221705935"></p><p>exp1:</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">from PIL import Image</span><br><span class="line">import binascii</span><br><span class="line">import base64</span><br><span class="line"></span><br><span class="line">a=Image.new(&#x27;RGB&#x27;,(2500,2500),&#x27;white&#x27;)</span><br><span class="line">n=0</span><br><span class="line">for i in range(25):</span><br><span class="line">    for j in range(25):</span><br><span class="line">        b=Image.open(f&#x27;./pic/&#123;n&#125;.png&#x27;)</span><br><span class="line">        a.paste(b,(100*j,100*i))</span><br><span class="line">        n+=1</span><br><span class="line">a.save(&#x27;6.png&#x27;)</span><br></pre></td></tr></table></figure><p>扫描，得到压缩包密码：</p><p><img src="https://picture-1312836458.cos.ap-beijing.myqcloud.com/img/image-20221207221758034.png" alt="image-20221207221758034"></p><p>打开里面还是一堆数字+字母</p><p>cyberchef:</p><p><img src="https://picture-1312836458.cos.ap-beijing.myqcloud.com/img/image-20221207214408846.png" alt="image-20221207214408846"></p><p>是一张图片，但是存在许多混乱的像素带：</p><p><img src="https://picture-1312836458.cos.ap-beijing.myqcloud.com/img/image-20221207221939223.png" alt="image-20221207221939223"></p><p>用stegsolve或者写脚本将每一个像素点的rgb提取并转为ascii</p><p>exp2:</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">from PIL import Image</span><br><span class="line">img = Image.open(r&#x27;C:\Users\19682\Desktop\3.png&#x27;)</span><br><span class="line">pixel =[]</span><br><span class="line">imgSize = img.size</span><br><span class="line">x, y = imgSize[0], imgSize[1]  # (x1200, y750)</span><br><span class="line">for i in range(y):</span><br><span class="line">    for j in range(x):</span><br><span class="line">        pixel.append(img.getpixel((j, i)))</span><br><span class="line">message = &#x27;&#x27;</span><br><span class="line">for i in pixel:</span><br><span class="line">    for j in i:</span><br><span class="line">        message += chr(j)</span><br><span class="line">with open(&#x27;flag.txt&#x27;, &#x27;a&#x27;, encoding=&#x27;utf-8&#x27;) as f:</span><br><span class="line">        f.write(message)</span><br><span class="line">        f.close()</span><br></pre></td></tr></table></figure><p><img src="https://picture-1312836458.cos.ap-beijing.myqcloud.com/img/image-20221207221404264.png" alt="image-20221207221404264"></p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;p&gt;回家路上打的比赛，高铁站坐牢捏&lt;/p&gt;
+&lt;h2 id=&quot;Crypto&quot;&gt;&lt;a href=&quot;#Crypto&quot; class=&quot;headerlink&quot; title=&quot;Crypto&quot;&gt;&lt;/a&gt;Crypto&lt;/h2&gt;&lt;h3 id=&quot;Cry1&quot;&gt;&lt;a href=&quot;#Cry1&quot; clas</summary>
       
     
     
