@@ -1,0 +1,476 @@
+<!DOCTYPE html>
+<html lang=zh>
+<head>
+    <!-- so meta -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5" />
+    <meta name="description" content="What the password?取电脑的密码 先看缓存在内存中的注册表的偏移量 1volatility_2.6_win64_standalone -f 1.vmem --profile&#x3D;Win7SP1x64 hivelist   关注到SAM(账户密码表)和system 1volatility_2.6_win64_standalone -f 1.vmem --profile&#x3D;Win7SP1x6">
+<meta property="og:type" content="article">
+<meta property="og:title" content="2018_Otterctf">
+<meta property="og:url" content="http://example.com/2023/01/10/otterctf/index.html">
+<meta property="og:site_name" content="d3f4u1t">
+<meta property="og:description" content="What the password?取电脑的密码 先看缓存在内存中的注册表的偏移量 1volatility_2.6_win64_standalone -f 1.vmem --profile&#x3D;Win7SP1x64 hivelist   关注到SAM(账户密码表)和system 1volatility_2.6_win64_standalone -f 1.vmem --profile&#x3D;Win7SP1x6">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://picture-1312836458.cos.ap-beijing.myqcloud.com/img/image-20230110204319040.png">
+<meta property="og:image" content="https://picture-1312836458.cos.ap-beijing.myqcloud.com/img/image-20230110205008754.png">
+<meta property="og:image" content="https://picture-1312836458.cos.ap-beijing.myqcloud.com/img/image-20230110205129938.png">
+<meta property="og:image" content="https://picture-1312836458.cos.ap-beijing.myqcloud.com/img/image-20230110205735792.png">
+<meta property="og:image" content="https://picture-1312836458.cos.ap-beijing.myqcloud.com/img/image-20230111115450555.png">
+<meta property="og:image" content="https://picture-1312836458.cos.ap-beijing.myqcloud.com/img/image-20230110211935091.png">
+<meta property="og:image" content="https://picture-1312836458.cos.ap-beijing.myqcloud.com/img/image-20230110212109665.png">
+<meta property="og:image" content="https://picture-1312836458.cos.ap-beijing.myqcloud.com/img/asynccode">
+<meta property="og:image" content="https://picture-1312836458.cos.ap-beijing.myqcloud.com/img/asynccode">
+<meta property="og:image" content="https://picture-1312836458.cos.ap-beijing.myqcloud.com/img/asynccode">
+<meta property="og:image" content="https://picture-1312836458.cos.ap-beijing.myqcloud.com/img/image-20230110212710545.png">
+<meta property="og:image" content="https://picture-1312836458.cos.ap-beijing.myqcloud.com/img/image-20230110212740879.png">
+<meta property="og:image" content="https://picture-1312836458.cos.ap-beijing.myqcloud.com/img/image-20230110213021513.png">
+<meta property="og:image" content="https://picture-1312836458.cos.ap-beijing.myqcloud.com/img/image-20230110220334466.png">
+<meta property="og:image" content="https://picture-1312836458.cos.ap-beijing.myqcloud.com/img/image-20230110221332856.png">
+<meta property="og:image" content="https://picture-1312836458.cos.ap-beijing.myqcloud.com/img/image-20230110215111382.png">
+<meta property="og:image" content="https://picture-1312836458.cos.ap-beijing.myqcloud.com/img/image-20230110222342899.png">
+<meta property="og:image" content="https://picture-1312836458.cos.ap-beijing.myqcloud.com/img/image-20230110222703615.png">
+<meta property="og:image" content="https://picture-1312836458.cos.ap-beijing.myqcloud.com/img/image-20230110223939226.png">
+<meta property="og:image" content="https://picture-1312836458.cos.ap-beijing.myqcloud.com/img/image-20230110230506018.png">
+<meta property="og:image" content="https://picture-1312836458.cos.ap-beijing.myqcloud.com/img/image-20230110231506046.png">
+<meta property="og:image" content="https://picture-1312836458.cos.ap-beijing.myqcloud.com/img/image-20230110232006992.png">
+<meta property="og:image" content="https://picture-1312836458.cos.ap-beijing.myqcloud.com/img/image-20230110231857831.png">
+<meta property="og:image" content="https://picture-1312836458.cos.ap-beijing.myqcloud.com/img/image-20230110232019271.png">
+<meta property="og:image" content="https://picture-1312836458.cos.ap-beijing.myqcloud.com/img/image-20230110233232962.png">
+<meta property="og:image" content="https://picture-1312836458.cos.ap-beijing.myqcloud.com/img/image-20230111001628843.png">
+<meta property="og:image" content="https://picture-1312836458.cos.ap-beijing.myqcloud.com/img/image-20230111111123260.png">
+<meta property="og:image" content="https://picture-1312836458.cos.ap-beijing.myqcloud.com/img/image-20230111110045821.png">
+<meta property="og:image" content="https://picture-1312836458.cos.ap-beijing.myqcloud.com/img/image-20230110203725711.png">
+<meta property="og:image" content="https://picture-1312836458.cos.ap-beijing.myqcloud.com/img/image-20230110203737493.png">
+<meta property="og:image" content="https://picture-1312836458.cos.ap-beijing.myqcloud.com/img/image-20230111111709522.png">
+<meta property="og:image" content="https://picture-1312836458.cos.ap-beijing.myqcloud.com/img/image-20230111121225941.png">
+<meta property="og:image" content="https://picture-1312836458.cos.ap-beijing.myqcloud.com/img/image-20230111121814099.png">
+<meta property="og:image" content="https://picture-1312836458.cos.ap-beijing.myqcloud.com/img/image-20230111122100939.png">
+<meta property="og:image" content="https://picture-1312836458.cos.ap-beijing.myqcloud.com/img/image-20230111122241218.png">
+<meta property="og:image" content="https://picture-1312836458.cos.ap-beijing.myqcloud.com/img/image-20230111122341497.png">
+<meta property="og:image" content="https://picture-1312836458.cos.ap-beijing.myqcloud.com/img/image-20230111122433271.png">
+<meta property="og:image" content="https://picture-1312836458.cos.ap-beijing.myqcloud.com/img/image-20230111122638933.png">
+<meta property="og:image" content="https://picture-1312836458.cos.ap-beijing.myqcloud.com/img/image-20230111122902847.png">
+<meta property="og:image" content="https://picture-1312836458.cos.ap-beijing.myqcloud.com/img/image-20230111123126591.png">
+<meta property="og:image" content="https://picture-1312836458.cos.ap-beijing.myqcloud.com/img/image-20230111203437261.png">
+<meta property="article:published_time" content="2023-01-09T16:00:00.000Z">
+<meta property="article:modified_time" content="2024-01-23T09:17:11.737Z">
+<meta property="article:author" content="d3f4u1t">
+<meta property="article:tag" content="复现">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://picture-1312836458.cos.ap-beijing.myqcloud.com/img/image-20230110204319040.png">
+    
+    
+      
+        
+          <link rel="shortcut icon" href="/images/favicon.ico">
+        
+      
+      
+        
+          <link rel="icon" type="image/png" href="/images/favicon-192x192.png" sizes="192x192">
+        
+      
+      
+        
+          <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+        
+      
+    
+    <!-- title -->
+    <title>2018_Otterctf</title>
+    <!-- async scripts -->
+    <!-- Google Analytics -->
+
+
+    <!-- Umami Analytics -->
+
+
+    <!-- styles -->
+    
+<link rel="stylesheet" href="/css/style.css">
+
+    <!-- persian styles -->
+    
+    <!-- rss -->
+    
+    
+	<!-- mathjax -->
+	
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+<body class="max-width mx-auto px3 ltr">
+    
+      <div id="header-post">
+  <a id="menu-icon" href="#" aria-label="目录"><i class="fa-solid fa-bars fa-lg"></i></a>
+  <a id="menu-icon-tablet" href="#" aria-label="目录"><i class="fa-solid fa-bars fa-lg"></i></a>
+  <a id="top-icon-tablet" href="#" aria-label="顶部" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');" style="display:none;"><i class="fa-solid fa-chevron-up fa-lg"></i></a>
+  <span id="menu">
+    <span id="nav">
+      <ul>
+        <!--
+       --><li><a href="/">首页</a></li><!--
+     --><!--
+       --><li><a href="/search/">搜索</a></li><!--
+     --><!--
+       --><li><a href="/links/">友链</a></li><!--
+     --><!--
+       --><li><a href="/about/">关于</a></li><!--
+     -->
+      </ul>
+    </span>
+    <br/>
+    <span id="actions">
+      <ul>
+        
+        <li><a class="icon" aria-label="上一篇" href="/2023/01/12/hgame2023/"><i class="fa-solid fa-chevron-left" aria-hidden="true" onmouseover="$('#i-prev').toggle();" onmouseout="$('#i-prev').toggle();"></i></a></li>
+        
+        
+        <li><a class="icon" aria-label="下一篇" href="/2022/12/30/docker/"><i class="fa-solid fa-chevron-right" aria-hidden="true" onmouseover="$('#i-next').toggle();" onmouseout="$('#i-next').toggle();"></i></a></li>
+        
+        <li><a class="icon" aria-label="返回顶部" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fa-solid fa-chevron-up" aria-hidden="true" onmouseover="$('#i-top').toggle();" onmouseout="$('#i-top').toggle();"></i></a></li>
+        <li><a class="icon" aria-label="分享文章" href="#"><i class="fa-solid fa-share-alt" aria-hidden="true" onmouseover="$('#i-share').toggle();" onmouseout="$('#i-share').toggle();" onclick="$('#share').toggle();return false;"></i></a></li>
+      </ul>
+      <span id="i-prev" class="info" style="display:none;">上一篇</span>
+      <span id="i-next" class="info" style="display:none;">下一篇</span>
+      <span id="i-top" class="info" style="display:none;">返回顶部</span>
+      <span id="i-share" class="info" style="display:none;">分享文章</span>
+    </span>
+    <br/>
+    <div id="share" style="display: none">
+      <ul>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.facebook.com/sharer.php?u=http://example.com/2023/01/10/otterctf/"><i class="fab fa-facebook " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://twitter.com/share?url=http://example.com/2023/01/10/otterctf/&text=2018_Otterctf"><i class="fab fa-twitter " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.linkedin.com/shareArticle?url=http://example.com/2023/01/10/otterctf/&title=2018_Otterctf"><i class="fab fa-linkedin " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://pinterest.com/pin/create/bookmarklet/?url=http://example.com/2023/01/10/otterctf/&is_video=false&description=2018_Otterctf"><i class="fab fa-pinterest " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=2018_Otterctf&body=Check out this article: http://example.com/2023/01/10/otterctf/"><i class="fa-solid fa-envelope " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://getpocket.com/save?url=http://example.com/2023/01/10/otterctf/&title=2018_Otterctf"><i class="fab fa-get-pocket " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://reddit.com/submit?url=http://example.com/2023/01/10/otterctf/&title=2018_Otterctf"><i class="fab fa-reddit " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.stumbleupon.com/submit?url=http://example.com/2023/01/10/otterctf/&title=2018_Otterctf"><i class="fab fa-stumbleupon " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://digg.com/submit?url=http://example.com/2023/01/10/otterctf/&title=2018_Otterctf"><i class="fab fa-digg " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.tumblr.com/share/link?url=http://example.com/2023/01/10/otterctf/&name=2018_Otterctf&description="><i class="fab fa-tumblr " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://news.ycombinator.com/submitlink?u=http://example.com/2023/01/10/otterctf/&t=2018_Otterctf"><i class="fab fa-hacker-news " aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+    
+    
+      <div id="toc">
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#What-the-password"><span class="toc-number">1.</span> <span class="toc-text">What the password?</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#General-Info"><span class="toc-number">2.</span> <span class="toc-text">General Info</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Play-Time"><span class="toc-number">3.</span> <span class="toc-text">Play Time</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Name-Game"><span class="toc-number">4.</span> <span class="toc-text">Name Game</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Name-Game-2"><span class="toc-number">5.</span> <span class="toc-text">Name Game 2</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Silly-Rick"><span class="toc-number">6.</span> <span class="toc-text">Silly Rick</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Hide-And-Seek"><span class="toc-number">7.</span> <span class="toc-text">Hide And Seek</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Path-To-Glory"><span class="toc-number">8.</span> <span class="toc-text">Path To Glory</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Path-To-Glory-2"><span class="toc-number">9.</span> <span class="toc-text">Path To Glory 2</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Bit-4-Bit"><span class="toc-number">10.</span> <span class="toc-text">Bit 4 Bit</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Graphic%E2%80%99s-For-The-Weak"><span class="toc-number">11.</span> <span class="toc-text">Graphic’s For The Weak</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Recovery"><span class="toc-number">12.</span> <span class="toc-text">Recovery</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Closure"><span class="toc-number">13.</span> <span class="toc-text">Closure</span></a></li></ol>
+      </div>
+    
+  </span>
+</div>
+
+    
+    <div class="content index py4 ">
+        
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+  <header>
+    
+    <h1 class="posttitle p-name" itemprop="name headline">
+        2018_Otterctf
+    </h1>
+
+
+
+    <div class="meta">
+      <span class="author p-author h-card" itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span class="p-name" itemprop="name">d3f4u1t</span>
+      </span>
+      
+    <div class="postdate">
+      
+        <time datetime="2023-01-09T16:00:00.000Z" class="dt-published" itemprop="datePublished">2023-01-10</time>
+        
+      
+    </div>
+
+
+      
+    <div class="article-category">
+        <i class="fa-solid fa-archive"></i>
+        <a class="category-link" href="/categories/%E7%94%B5%E5%AD%90%E5%8F%96%E8%AF%81/">电子取证</a>
+    </div>
+
+
+      
+    <div class="article-tag">
+        <i class="fa-solid fa-tag"></i>
+        <a class="p-category" href="/tags/%E5%A4%8D%E7%8E%B0/" rel="tag">复现</a>
+    </div>
+
+
+    </div>
+  </header>
+  
+
+  <div class="content e-content" itemprop="articleBody">
+    <h2 id="What-the-password"><a href="#What-the-password" class="headerlink" title="What the password?"></a>What the password?</h2><p>取电脑的密码</p>
+<p>先看缓存在内存中的注册表的偏移量</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">volatility_2.6_win64_standalone -f 1.vmem --profile=Win7SP1x64 hivelist</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://picture-1312836458.cos.ap-beijing.myqcloud.com/img/image-20230110204319040.png" alt="image-20230110204319040"></p>
+<p>关注到SAM(账户密码表)和system</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">volatility_2.6_win64_standalone -f 1.vmem --profile=Win7SP1x64 hashdump -y 0xfffff8a000024010 -s 0xfffff8a0016d4010</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://picture-1312836458.cos.ap-beijing.myqcloud.com/img/image-20230110205008754.png" alt="image-20230110205008754"></p>
+<p>解不开md5…</p>
+<p><img src="https://picture-1312836458.cos.ap-beijing.myqcloud.com/img/image-20230110205129938.png" alt="image-20230110205129938"></p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">volatility_2.6_win64_standalone -f 1.vmem --profile=Win7SP1x64 lsadump</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://picture-1312836458.cos.ap-beijing.myqcloud.com/img/image-20230110205735792.png" alt="image-20230110205735792"></p>
+<p>算了算了passware一把梭</p>
+<p><img src="https://picture-1312836458.cos.ap-beijing.myqcloud.com/img/image-20230111115450555.png" alt="image-20230111115450555"></p>
+<h2 id="General-Info"><a href="#General-Info" class="headerlink" title="General Info"></a>General Info</h2><p>win版的好像没办法装插件，用插件会更简单</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">volatility_2.6_win64_standalone -f 1.vmem --profile=Win7SP1x64 netscan</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://picture-1312836458.cos.ap-beijing.myqcloud.com/img/image-20230110211935091.png" alt="image-20230110211935091"></p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">volatility_2.6_win64_standalone -f 1.vmem --profile=&quot;Win7SP1x64&quot; printkey -o 0xfffff8a000024010 -K &quot;ControlSet001\Control\ComputerName\ComputerName&quot;</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://picture-1312836458.cos.ap-beijing.myqcloud.com/img/image-20230110212109665.png" alt="image-20230110212109665"></p>
+<p>法二：</p>
+<p>主机网络地址：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">python vol.py -f OtterCTF.vmem --profile=Win7SP1x64 netscan</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://picture-1312836458.cos.ap-beijing.myqcloud.com/img/asynccode" alt="img"></p>
+<p><img src="https://picture-1312836458.cos.ap-beijing.myqcloud.com/img/asynccode" alt="img"></p>
+<p>电脑名：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">python vol.py  --plugins=./volatility/plugins/ -f OtterCTF.vmem --profile=Win7SP1x64  mimikatz</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://picture-1312836458.cos.ap-beijing.myqcloud.com/img/asynccode" alt="img"></p>
+<h2 id="Play-Time"><a href="#Play-Time" class="headerlink" title="Play Time"></a>Play Time</h2><p>进程运行过会在内存中留下痕迹，查一下内存中的进程</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">volatility_2.6_win64_standalone -f 1.vmem --profile=Win7SP1x64 psscan</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://picture-1312836458.cos.ap-beijing.myqcloud.com/img/image-20230110212710545.png" alt="image-20230110212710545"></p>
+<p><img src="https://picture-1312836458.cos.ap-beijing.myqcloud.com/img/image-20230110212740879.png" alt="image-20230110212740879"></p>
+<p>再查网络</p>
+<p><img src="https://picture-1312836458.cos.ap-beijing.myqcloud.com/img/image-20230110213021513.png" alt="image-20230110213021513"></p>
+<p>直接看还是有点费劲，要是有grep就好了qwq</p>
+<h2 id="Name-Game"><a href="#Name-Game" class="headerlink" title="Name Game"></a>Name Game</h2><p>将游戏进程dump下来</p>
+<p>strings提取并搜索关键字Lunar-3，下一行是用户名（不懂，猜测是虚拟内存中挨得近？</p>
+<p><img src="https://picture-1312836458.cos.ap-beijing.myqcloud.com/img/image-20230110220334466.png" alt="image-20230110220334466"></p>
+<h2 id="Name-Game-2"><a href="#Name-Game-2" class="headerlink" title="Name Game 2"></a>Name Game 2</h2><p><strong>0x64 0x??{6-8} 0x40 0x06 0x??{18} 0x5a 0x0c 0x00{2}</strong></p>
+<p>直接爆搜吧</p>
+<p><img src="https://picture-1312836458.cos.ap-beijing.myqcloud.com/img/image-20230110221332856.png" alt="image-20230110221332856"></p>
+<h2 id="Silly-Rick"><a href="#Silly-Rick" class="headerlink" title="Silly Rick"></a>Silly Rick</h2><p>看粘贴板中的数据</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">volatility_2.6_win64_standalone -f 1.vmem --profile=Win7SP1x64 clipboard</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://picture-1312836458.cos.ap-beijing.myqcloud.com/img/image-20230110215111382.png" alt="image-20230110215111382"></p>
+<h2 id="Hide-And-Seek"><a href="#Hide-And-Seek" class="headerlink" title="Hide And Seek"></a>Hide And Seek</h2><p>根据题目描述和进程解析以及<a target="_blank" rel="noopener" href="https://howtodoninja.com/files/exe/vmware-tray-exe/vmware-tray-exe-virus-malware-uninstall-fix/">这里</a>,勒索软件可能伪装成vmware-tray.exe</p>
+<p>pstree查看进程树（看看vmware-tray.exe的父子进程</p>
+<p><img src="https://picture-1312836458.cos.ap-beijing.myqcloud.com/img/image-20230110222342899.png" alt="image-20230110222342899"></p>
+<p>虚拟机里的进程不应该由一个动画片产生，这应该是伪装进程</p>
+<p><img src="https://picture-1312836458.cos.ap-beijing.myqcloud.com/img/image-20230110222703615.png" alt="image-20230110222703615"></p>
+<p>dll存放于临时目录，正常系统文件不应该在这儿吧</p>
+<h2 id="Path-To-Glory"><a href="#Path-To-Glory" class="headerlink" title="Path To Glory"></a>Path To Glory</h2><p>扫一下父进程文件</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">volatility_2.6_win64_standalone -f 1.vmem --profile=Win7SP1x64 filescan | findstr=&quot;Rick And Morty&quot;</span><br></pre></td></tr></table></figure>
+
+<p>首先了解BT种子:</p>
+<p>一种<a target="_blank" rel="noopener" href="https://baike.baidu.com/item/%E7%94%B5%E8%84%91/124859?fromModule=lemma_inlink">电脑</a>“.<a target="_blank" rel="noopener" href="https://baike.baidu.com/item/torrent/6640021?fromModule=lemma_inlink">torrent</a>”文件，装有BT（BitTorrent）下载必须的文件信息，作用相当于<a target="_blank" rel="noopener" href="https://baike.baidu.com/item/HTTP/243074?fromModule=lemma_inlink">HTTP</a>下载里的<a target="_blank" rel="noopener" href="https://baike.baidu.com/item/URL?fromModule=lemma_inlink">URL</a>链接。</p>
+<p><img src="https://picture-1312836458.cos.ap-beijing.myqcloud.com/img/image-20230110223939226.png" alt="image-20230110223939226"></p>
+<p>提取种子文件strings即可</p>
+<h2 id="Path-To-Glory-2"><a href="#Path-To-Glory-2" class="headerlink" title="Path To Glory 2"></a>Path To Glory 2</h2><p>导出所有chrome进程</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">volatility_2.6_win64_standalone.exe -f 1.vmem --profile=Win7SP1x64 memdump -n chrome.exe -D ./chrome/</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://picture-1312836458.cos.ap-beijing.myqcloud.com/img/image-20230110230506018.png" alt="image-20230110230506018"></p>
+<p><img src="https://picture-1312836458.cos.ap-beijing.myqcloud.com/img/image-20230110231506046.png" alt="image-20230110231506046"></p>
+<p>这种方式按理说肯定会有结果的，但奈何虚拟机没空间了，写不全</p>
+<p><img src="https://picture-1312836458.cos.ap-beijing.myqcloud.com/img/image-20230110232006992.png" alt="image-20230110232006992"></p>
+<p><img src="https://picture-1312836458.cos.ap-beijing.myqcloud.com/img/image-20230110231857831.png" alt="image-20230110231857831"></p>
+<p><img src="https://picture-1312836458.cos.ap-beijing.myqcloud.com/img/image-20230110232019271.png" alt="image-20230110232019271"></p>
+<p>直接看download.exe.torrent前后的十个文件吧</p>
+<h2 id="Bit-4-Bit"><a href="#Bit-4-Bit" class="headerlink" title="Bit 4 Bit"></a>Bit 4 Bit</h2><p>这题还是说恶意软件的，直接以可执行文件格式保存</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">volatility_2.6_win64_standalone -f 1.vmem --profile=Win7SP1x64 procdump -p 3720 -D ./</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://picture-1312836458.cos.ap-beijing.myqcloud.com/img/image-20230110233232962.png" alt="image-20230110233232962"></p>
+<p>然而win版打了命令也没找到可执行文件（？</p>
+<p>还是用linux吧</p>
+<p><img src="https://picture-1312836458.cos.ap-beijing.myqcloud.com/img/image-20230111001628843.png" alt="image-20230111001628843"></p>
+<p>后来明白为什么win版的会没有可执行文件了，因为这玩意被系统杀了（win11专业版真的一言难尽</p>
+<p>查完壳逆一下</p>
+<p><img src="https://picture-1312836458.cos.ap-beijing.myqcloud.com/img/image-20230111111123260.png" alt="image-20230111111123260"></p>
+<p><img src="https://picture-1312836458.cos.ap-beijing.myqcloud.com/img/image-20230111110045821.png" alt="image-20230111110045821"></p>
+<h2 id="Graphic’s-For-The-Weak"><a href="#Graphic’s-For-The-Weak" class="headerlink" title="Graphic’s For The Weak"></a>Graphic’s For The Weak</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">volatility_2.6_win64_standalone.exe -f 1.vmem --profile=Win7SP1x64 memdump -p 3720 -D ./</span><br></pre></td></tr></table></figure>
+
+<p>分离进程中的文件</p>
+<p><img src="https://picture-1312836458.cos.ap-beijing.myqcloud.com/img/image-20230110203725711.png" alt="image-20230110203725711"></p>
+<p><img src="https://picture-1312836458.cos.ap-beijing.myqcloud.com/img/image-20230110203737493.png" alt="image-20230110203737493"></p>
+<h2 id="Recovery"><a href="#Recovery" class="headerlink" title="Recovery"></a>Recovery</h2><p><img src="https://picture-1312836458.cos.ap-beijing.myqcloud.com/img/image-20230111111709522.png" alt="image-20230111111709522"></p>
+<p>看到这里发送密码信息的格式，去爆搜即可</p>
+<p>这里有一点，程序的数据是16字节小端序数据，可以过滤（.NET程序用2个字节表示一个字符串）</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">strings -el 3720.dmp | grep &#x27;WIN-LO6FAF3DTFE-Rick&#x27; -C 5</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://picture-1312836458.cos.ap-beijing.myqcloud.com/img/image-20230111121225941.png" alt="image-20230111121225941"></p>
+<p>strings用法：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">-a --all：扫描整个文件而不是只扫描目标文件初始化和装载段</span><br><span class="line">-f –print-file-name：在显示字符串前先显示文件名</span><br><span class="line">-n –bytes=[number]：找到并且输出所有NUL终止符序列</span><br><span class="line">- ：设置显示的最少的字符数，默认是4个字符</span><br><span class="line">-t --radix=&#123;o,d,x&#125; ：输出字符的位置，基于八进制，十进制或者十六进制</span><br><span class="line">-o ：类似--radix=o</span><br><span class="line">-T --target= ：指定二进制文件格式</span><br><span class="line">-e --encoding=&#123;s,S,b,l,B,L&#125; ：选择字符大小和排列顺序:s = 7-bit, S = 8-bit, &#123;b,l&#125; = 16-bit, &#123;B,L&#125; = 32-bit</span><br><span class="line">@ ：读取中选项</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="Closure"><a href="#Closure" class="headerlink" title="Closure"></a>Closure</h2><p>解密</p>
+<p><img src="https://picture-1312836458.cos.ap-beijing.myqcloud.com/img/image-20230111121814099.png" alt="image-20230111121814099"></p>
+<p>grep用法：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">-a 或 --text : 不要忽略二进制的数据。</span><br><span class="line">-A&lt;显示行数&gt; 或 --after-context=&lt;显示行数&gt; : 除了显示符合范本样式的那一列之外，并显示该行之后的内容。</span><br><span class="line">-b 或 --byte-offset : 在显示符合样式的那一行之前，标示出该行第一个字符的编号。</span><br><span class="line">-B&lt;显示行数&gt; 或 --before-context=&lt;显示行数&gt; : 除了显示符合样式的那一行之外，并显示该行之前的内容。</span><br><span class="line">-c 或 --count : 计算符合样式的列数。</span><br><span class="line">-C&lt;显示行数&gt; 或 --context=&lt;显示行数&gt;或-&lt;显示行数&gt; : 除了显示符合样式的那一行之外，并显示该行之前后的内容。</span><br><span class="line">-d &lt;动作&gt; 或 --directories=&lt;动作&gt; : 当指定要查找的是目录而非文件时，必须使用这项参数，否则grep指令将回报信息并停止动作。</span><br><span class="line">-e&lt;范本样式&gt; 或 --regexp=&lt;范本样式&gt; : 指定字符串做为查找文件内容的样式。</span><br><span class="line">-E 或 --extended-regexp : 将样式为延伸的正则表达式来使用。</span><br><span class="line">-f&lt;规则文件&gt; 或 --file=&lt;规则文件&gt; : 指定规则文件，其内容含有一个或多个规则样式，让grep查找符合规则条件的文件内容，格式为每行一个规则样式。</span><br><span class="line">-F 或 --fixed-regexp : 将样式视为固定字符串的列表。</span><br><span class="line">-G 或 --basic-regexp : 将样式视为普通的表示法来使用。</span><br><span class="line">-h 或 --no-filename : 在显示符合样式的那一行之前，不标示该行所属的文件名称。</span><br><span class="line">-H 或 --with-filename : 在显示符合样式的那一行之前，表示该行所属的文件名称。</span><br><span class="line">-i 或 --ignore-case : 忽略字符大小写的差别。</span><br><span class="line">-l 或 --file-with-matches : 列出文件内容符合指定的样式的文件名称。</span><br><span class="line">-L 或 --files-without-match : 列出文件内容不符合指定的样式的文件名称。</span><br><span class="line">-n 或 --line-number : 在显示符合样式的那一行之前，标示出该行的列数编号。</span><br><span class="line">-o 或 --only-matching : 只显示匹配PATTERN 部分。</span><br><span class="line">-q 或 --quiet或--silent : 不显示任何信息。</span><br><span class="line">-r 或 --recursive : 此参数的效果和指定&quot;-d recurse&quot;参数相同。</span><br><span class="line">-s 或 --no-messages : 不显示错误信息。</span><br><span class="line">-v 或 --invert-match : 显示不包含匹配文本的所有行。</span><br><span class="line">-V 或 --version : 显示版本信息。</span><br><span class="line">-w 或 --word-regexp : 只显示全字符合的列。</span><br><span class="line">-x --line-regexp : 只显示全列符合的列。</span><br><span class="line">-y : 此参数的效果和指定&quot;-i&quot;参数相同。</span><br></pre></td></tr></table></figure>
+
+<p>这里桌面上还有个文件</p>
+<p><img src="https://picture-1312836458.cos.ap-beijing.myqcloud.com/img/image-20230111122100939.png" alt="image-20230111122100939"></p>
+<p>都提取</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">volatility -f 1.vmem --profile=Win7SP1x64 dumpfiles -Q 0x000000007e410890 -D ./</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://picture-1312836458.cos.ap-beijing.myqcloud.com/img/image-20230111122241218.png" alt="image-20230111122241218"></p>
+<p>另一个文件属于提示</p>
+<p><img src="https://picture-1312836458.cos.ap-beijing.myqcloud.com/img/image-20230111122341497.png" alt="image-20230111122341497"></p>
+<p>之前的图片中有这样一个字符串</p>
+<p><img src="https://picture-1312836458.cos.ap-beijing.myqcloud.com/img/image-20230111122433271.png" alt="image-20230111122433271"></p>
+<p>可以看看这篇<a target="_blank" rel="noopener" href="https://www.2-viruses.com/remove-ucylocker-virus">文章</a></p>
+<p><img src="https://picture-1312836458.cos.ap-beijing.myqcloud.com/img/image-20230111122638933.png" alt="image-20230111122638933"></p>
+<p>逆向的过程中也看到了hidden_tear</p>
+<p><img src="https://picture-1312836458.cos.ap-beijing.myqcloud.com/img/image-20230111122902847.png" alt="image-20230111122902847"></p>
+<p><a target="_blank" rel="noopener" href="https://www.spywareremove.com/removeucylockerransomware.html">搜索</a>可知这是有联系的</p>
+<p><img src="https://picture-1312836458.cos.ap-beijing.myqcloud.com/img/image-20230111123126591.png" alt="image-20230111123126591"></p>
+<p>用hidden_tear解密软件解密</p>
+<p>解密变种的软件看了wp（没搜到，我是fw</p>
+<p>加密代码是采用CBC模式进行加密，会对文件进行填充，还要把多余的00删掉再解</p>
+<p><img src="https://picture-1312836458.cos.ap-beijing.myqcloud.com/img/image-20230111203437261.png" alt="image-20230111203437261"></p>
+
+  </div>
+</article>
+
+
+
+        
+          <div id="footer-post-container">
+  <div id="footer-post">
+
+    <div id="nav-footer" style="display: none">
+      <ul>
+        
+          <li><a href="/">首页</a></li>
+        
+          <li><a href="/search/">搜索</a></li>
+        
+          <li><a href="/links/">友链</a></li>
+        
+          <li><a href="/about/">关于</a></li>
+        
+      </ul>
+    </div>
+
+    
+    
+      <div id="toc-footer" style="display: none">
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#What-the-password"><span class="toc-number">1.</span> <span class="toc-text">What the password?</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#General-Info"><span class="toc-number">2.</span> <span class="toc-text">General Info</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Play-Time"><span class="toc-number">3.</span> <span class="toc-text">Play Time</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Name-Game"><span class="toc-number">4.</span> <span class="toc-text">Name Game</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Name-Game-2"><span class="toc-number">5.</span> <span class="toc-text">Name Game 2</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Silly-Rick"><span class="toc-number">6.</span> <span class="toc-text">Silly Rick</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Hide-And-Seek"><span class="toc-number">7.</span> <span class="toc-text">Hide And Seek</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Path-To-Glory"><span class="toc-number">8.</span> <span class="toc-text">Path To Glory</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Path-To-Glory-2"><span class="toc-number">9.</span> <span class="toc-text">Path To Glory 2</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Bit-4-Bit"><span class="toc-number">10.</span> <span class="toc-text">Bit 4 Bit</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Graphic%E2%80%99s-For-The-Weak"><span class="toc-number">11.</span> <span class="toc-text">Graphic’s For The Weak</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Recovery"><span class="toc-number">12.</span> <span class="toc-text">Recovery</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Closure"><span class="toc-number">13.</span> <span class="toc-text">Closure</span></a></li></ol>
+      </div>
+    
+
+    <div id="share-footer" style="display: none">
+      <ul>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.facebook.com/sharer.php?u=http://example.com/2023/01/10/otterctf/"><i class="fab fa-facebook fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://twitter.com/share?url=http://example.com/2023/01/10/otterctf/&text=2018_Otterctf"><i class="fab fa-twitter fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.linkedin.com/shareArticle?url=http://example.com/2023/01/10/otterctf/&title=2018_Otterctf"><i class="fab fa-linkedin fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://pinterest.com/pin/create/bookmarklet/?url=http://example.com/2023/01/10/otterctf/&is_video=false&description=2018_Otterctf"><i class="fab fa-pinterest fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=2018_Otterctf&body=Check out this article: http://example.com/2023/01/10/otterctf/"><i class="fa-solid fa-envelope fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://getpocket.com/save?url=http://example.com/2023/01/10/otterctf/&title=2018_Otterctf"><i class="fab fa-get-pocket fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://reddit.com/submit?url=http://example.com/2023/01/10/otterctf/&title=2018_Otterctf"><i class="fab fa-reddit fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.stumbleupon.com/submit?url=http://example.com/2023/01/10/otterctf/&title=2018_Otterctf"><i class="fab fa-stumbleupon fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://digg.com/submit?url=http://example.com/2023/01/10/otterctf/&title=2018_Otterctf"><i class="fab fa-digg fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.tumblr.com/share/link?url=http://example.com/2023/01/10/otterctf/&name=2018_Otterctf&description="><i class="fab fa-tumblr fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://news.ycombinator.com/submitlink?u=http://example.com/2023/01/10/otterctf/&t=2018_Otterctf"><i class="fab fa-hacker-news fa-lg" aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+
+    <div id="actions-footer">
+        <a id="menu" class="icon" href="#" onclick="$('#nav-footer').toggle();return false;"><i class="fa-solid fa-bars fa-lg" aria-hidden="true"></i> 菜单</a>
+        
+          <a id="toc" class="icon" href="#" onclick="$('#toc-footer').toggle();return false;"><i class="fa-solid fa-list fa-lg" aria-hidden="true"></i> 目录</a>
+        
+        <a id="share" class="icon" href="#" onclick="$('#share-footer').toggle();return false;"><i class="fa-solid fa-share-alt fa-lg" aria-hidden="true"></i> 分享</a>
+        <a id="top" style="display:none" class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fa-solid fa-chevron-up fa-lg" aria-hidden="true"></i> 返回顶部</a>
+    </div>
+
+  </div>
+</div>
+
+        
+        <footer id="footer">
+  <div class="footer-left">
+    Copyright &copy;
+    
+    
+    2020-2024
+    d3f4u1t
+  </div>
+  <div class="footer-right">
+    <nav>
+      <ul>
+        <!--
+       --><li><a href="/">首页</a></li><!--
+     --><!--
+       --><li><a href="/search/">搜索</a></li><!--
+     --><!--
+       --><li><a href="/links/">友链</a></li><!--
+     --><!--
+       --><li><a href="/about/">关于</a></li><!--
+     -->
+      </ul>
+    </nav>
+  </div>
+</footer>
+
+    </div>
+    <!-- styles -->
+
+
+
+  <link rel="preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" crossorigin="anonymous" onload="this.onload=null;this.rel='stylesheet'"/>
+
+
+    <!-- jquery -->
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" crossorigin="anonymous"></script>
+
+
+
+
+<!-- clipboard -->
+
+  
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.7/clipboard.min.js" crossorigin="anonymous"></script>
+  
+  <script type="text/javascript">
+  $(function() {
+    // copy-btn HTML
+    var btn = "<span class=\"btn-copy tooltipped tooltipped-sw\" aria-label=\"复制到粘贴板！\">";
+    btn += '<i class="fa-regular fa-clone"></i>';
+    btn += '</span>';
+    // mount it!
+    $(".highlight table").before(btn);
+    var clip = new ClipboardJS('.btn-copy', {
+      text: function(trigger) {
+        return Array.from(trigger.nextElementSibling.querySelectorAll('.code')).reduce((str,it)=>str+it.innerText+'\n','')
+      }
+    });
+    clip.on('success', function(e) {
+      e.trigger.setAttribute('aria-label', "复制成功！");
+      e.clearSelection();
+    })
+  })
+  </script>
+
+
+<script src="/js/main.js"></script>
+
+<!-- search -->
+
+<!-- Baidu Analytics -->
+
+<!-- Cloudflare Analytics -->
+
+<!-- Disqus Comments -->
+
+<!-- utterances Comments -->
+
+</body>
+</html>
