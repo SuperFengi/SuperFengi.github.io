@@ -161,11 +161,11 @@
 
   <div class="content e-content" itemprop="articleBody">
     <p>近期本地博客上传遇到了以下报错：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">Please make sure you have the correct access rights</span><br><span class="line">and the repository exists.</span><br><span class="line">FATAL Something<span class="string">&#x27;s wrong. Maybe you can find the solution here: https://hexo.io/docs/troubleshooting.html</span></span><br><span class="line"><span class="string">Error: Spawn failed</span></span><br><span class="line"><span class="string">    at ChildProcess.&lt;anonymous&gt; (E:\Blog\Hexo\node_modules\hexo-util\lib\spawn.js:51:21)</span></span><br><span class="line"><span class="string">    at ChildProcess.emit (node:events:513:28)</span></span><br><span class="line"><span class="string">    at cp.emit (E:\Blog\Hexo\node_modules\cross-spawn\lib\enoent.js:34:29)</span></span><br><span class="line"><span class="string">    at ChildProcess._handle.onexit (node:internal/child_process:291:12)</span></span><br></pre></td></tr></table></figure>
+<div class="highlight-wrap" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">Please make sure you have the correct access rights</span><br><span class="line">and the repository exists.</span><br><span class="line">FATAL Something<span class="string">&#x27;s wrong. Maybe you can find the solution here: https://hexo.io/docs/troubleshooting.html</span></span><br><span class="line"><span class="string">Error: Spawn failed</span></span><br><span class="line"><span class="string">    at ChildProcess.&lt;anonymous&gt; (E:\Blog\Hexo\node_modules\hexo-util\lib\spawn.js:51:21)</span></span><br><span class="line"><span class="string">    at ChildProcess.emit (node:events:513:28)</span></span><br><span class="line"><span class="string">    at cp.emit (E:\Blog\Hexo\node_modules\cross-spawn\lib\enoent.js:34:29)</span></span><br><span class="line"><span class="string">    at ChildProcess._handle.onexit (node:internal/child_process:291:12)</span></span><br></pre></td></tr></table></figure></div>
 
 <p>关键问题出在错误的第一行，git服务器没有成功发现存储在本地的ssh密钥或者说是本地的ssh密钥出现问题</p>
 <p>测试发现确实连接失败</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh -T git@github.com</span><br></pre></td></tr></table></figure>
+<div class="highlight-wrap" data-rel="Shell"><figure class="iseeu highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh -T git@github.com</span><br></pre></td></tr></table></figure></div>
 
 
 
@@ -174,7 +174,7 @@
 <p><img src="https://picture-1312836458.cos.ap-beijing.myqcloud.com/image-20240123124527185.png" alt="image-20240123124527185"></p>
 <p>可以发现这里我因为vscode连ubuntu远程写代码导致之前的ssh配置被修改</p>
 <p>直接下方添加域名：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Host github.com</span><br><span class="line">  HostName ssh.github.com</span><br><span class="line">  User d3f4u1t</span><br><span class="line">  Port 22</span><br></pre></td></tr></table></figure>
+<div class="highlight-wrap" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Host github.com</span><br><span class="line">  HostName ssh.github.com</span><br><span class="line">  User d3f4u1t</span><br><span class="line">  Port 22</span><br></pre></td></tr></table></figure></div>
 
 
 

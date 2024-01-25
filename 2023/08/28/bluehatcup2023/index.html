@@ -299,20 +299,20 @@
 <h2 id="【服务器取证】请给出嫌疑人累计推广人数？-答案格式：100"><a href="#【服务器取证】请给出嫌疑人累计推广人数？-答案格式：100" class="headerlink" title="【服务器取证】请给出嫌疑人累计推广人数？[答案格式：100]"></a>【服务器取证】请给出嫌疑人累计推广人数？[答案格式：100]</h2><p>这里如果想要进后台的话，需要修复数据库，当然弘连自带的数据库工具也可以跑出数据库，不过自己算的话还是比较麻烦，预期解还是重构起来网站进入后台直接爆翻。 </p>
 <p><a target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_40230682/article/details/118703478">相关文章</a></p>
 <p>安装qpress</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">wget &quot;http://docs-aliyun.cn-hangzhou.oss.aliyuninc.com/assets/attach/183466/cn_zh/1608011575185/qpress-11-linux-x64.tar&quot;</span><br><span class="line">tar xvf qpress-11-linux-x64.tar</span><br><span class="line">chmod 775 qpress</span><br></pre></td></tr></table></figure>
+<div class="highlight-wrap" data-rel="Shell"><figure class="iseeu highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">wget &quot;http://docs-aliyun.cn-hangzhou.oss.aliyuninc.com/assets/attach/183466/cn_zh/1608011575185/qpress-11-linux-x64.tar&quot;</span><br><span class="line">tar xvf qpress-11-linux-x64.tar</span><br><span class="line">chmod 775 qpress</span><br></pre></td></tr></table></figure></div>
 
 <p><img src="https://picture-1312836458.cos.ap-beijing.myqcloud.com/image-20230830013515920.png" alt="image-20230830013515920"></p>
 <p>安装xtrabackup</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wget https://www.percona.com/downloads/XtraBackup/Percona-XtraBackup-2.4.9/binary/redhat/7/x86_64/percona-xtrabackup-24-2.4.9-1.el7.x86_64.rpm</span><br></pre></td></tr></table></figure>
+<div class="highlight-wrap" data-rel="Shell"><figure class="iseeu highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wget https://www.percona.com/downloads/XtraBackup/Percona-XtraBackup-2.4.9/binary/redhat/7/x86_64/percona-xtrabackup-24-2.4.9-1.el7.x86_64.rpm</span><br></pre></td></tr></table></figure></div>
 
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum install -y percona-xtrabackup-24-2.4.9-1.el7.x86_64.rpm</span><br></pre></td></tr></table></figure>
+<div class="highlight-wrap" data-rel="Shell"><figure class="iseeu highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum install -y percona-xtrabackup-24-2.4.9-1.el7.x86_64.rpm</span><br></pre></td></tr></table></figure></div>
 <p>finalshell直接传数据库</p>
 <p><img src="https://picture-1312836458.cos.ap-beijing.myqcloud.com/image-20230830014133579.png" alt="image-20230830014133579"></p>
 <p>使用xbstream处理qp.xb文件</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">cat qp.xb | xbstream -x -v -C /www/server/data</span><br><span class="line"></span><br><span class="line">cat qp.xb | xbstream -x -v -C /www/server/data</span><br><span class="line">innobackupex --decompress --remove-original /www/server/data</span><br><span class="line">innobackupex --defaults-file=/etc/my.cnf --apply-log /www/server/data</span><br><span class="line">chown -R mysql:mysql /www/server/data</span><br></pre></td></tr></table></figure>
+<div class="highlight-wrap" data-rel="Shell"><figure class="iseeu highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">cat qp.xb | xbstream -x -v -C /www/server/data</span><br><span class="line"></span><br><span class="line">cat qp.xb | xbstream -x -v -C /www/server/data</span><br><span class="line">innobackupex --decompress --remove-original /www/server/data</span><br><span class="line">innobackupex --defaults-file=/etc/my.cnf --apply-log /www/server/data</span><br><span class="line">chown -R mysql:mysql /www/server/data</span><br></pre></td></tr></table></figure></div>
 
 <p>然后修改mysql文件</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vim /etc/my.cnf</span><br></pre></td></tr></table></figure>
+<div class="highlight-wrap" data-rel="Shell"><figure class="iseeu highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vim /etc/my.cnf</span><br></pre></td></tr></table></figure></div>
 
 <p><img src="https://picture-1312836458.cos.ap-beijing.myqcloud.com/image-20230830013908521.png" alt="image-20230830013908521"></p>
 <p><img src="https://picture-1312836458.cos.ap-beijing.myqcloud.com/image-20230830013934655.png" alt="image-20230830013934655"></p>
@@ -396,7 +396,7 @@
 <p>总而言之就是你可以有上线，上线为inviter，也可以发展下线，那么你自己也会有一个邀请号码，即invicode</p>
 <h2 id="【服务器取证】分析涉案网站数据库或者后台流水明细，本网站总共盈利多少钱-答题格式-10-000-00"><a href="#【服务器取证】分析涉案网站数据库或者后台流水明细，本网站总共盈利多少钱-答题格式-10-000-00" class="headerlink" title="【服务器取证】分析涉案网站数据库或者后台流水明细，本网站总共盈利多少钱[答题格式:10,000.00"></a>【服务器取证】分析涉案网站数据库或者后台流水明细，本网站总共盈利多少钱[答题格式:10,000.00</h2><p>导出moneylog表格</p>
 <p>然后根据加减号开始算</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">SELECT sum(moneylog_money) FROM moneylog WHERE moneylog_status=&#x27;+&#x27;</span><br><span class="line">SELECT sum(moneylog_money) FROM moneylog WHERE moneylog_status=&#x27;-&#x27;</span><br></pre></td></tr></table></figure>
+<div class="highlight-wrap" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">SELECT sum(moneylog_money) FROM moneylog WHERE moneylog_status=&#x27;+&#x27;</span><br><span class="line">SELECT sum(moneylog_money) FROM moneylog WHERE moneylog_status=&#x27;-&#x27;</span><br></pre></td></tr></table></figure></div>
 
 <p><img src="https://picture-1312836458.cos.ap-beijing.myqcloud.com/image-20230830112225565.png" alt="image-20230830112225565"></p>
 <p><img src="https://picture-1312836458.cos.ap-beijing.myqcloud.com/image-20230830112243544.png" alt="image-20230830112243544"></p>

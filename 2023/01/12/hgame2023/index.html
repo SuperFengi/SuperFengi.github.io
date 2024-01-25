@@ -195,18 +195,18 @@
 <h2 id="Tunnel-Revange"><a href="#Tunnel-Revange" class="headerlink" title="Tunnel Revange"></a>Tunnel Revange</h2><p>上<a target="_blank" rel="noopener" href="https://crazymanarmy.github.io/2023/01/31/Hgame-2023-week3-Tunnel-&&-Tunnel-Revenge-Writeup-CN/">链接</a>，给空白磕一个</p>
 <h2 id="ezWin-variables"><a href="#ezWin-variables" class="headerlink" title="ezWin - variables"></a>ezWin - variables</h2><p>内存取证，但是必须要使用vol3，对于vol3的使用还是比较少的，记录一下</p>
 <p>查询基本信息</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">python3 vol.py -f 1.vmem windows.info </span><br></pre></td></tr></table></figure>
+<div class="highlight-wrap" data-rel="Shell"><figure class="iseeu highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">python3 vol.py -f 1.vmem windows.info </span><br></pre></td></tr></table></figure></div>
 
 <p>根据题目名称，结合grep查询环境变量</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">python3 vol.py -f 1.vmem windows.envar | grep hgame</span><br></pre></td></tr></table></figure>
+<div class="highlight-wrap" data-rel="Shell"><figure class="iseeu highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">python3 vol.py -f 1.vmem windows.envar | grep hgame</span><br></pre></td></tr></table></figure></div>
 
 <p><img src="https://picture-1312836458.cos.ap-beijing.myqcloud.com/img/image-20230208091631883.png" alt="image-20230208091631883"></p>
 <h2 id="ezWin-auth"><a href="#ezWin-auth" class="headerlink" title="ezWin - auth"></a>ezWin - auth</h2><p>先使用cmdline查看命令行记录</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">python3 vol.py -f 1.vmem windows.cmdline</span><br></pre></td></tr></table></figure>
+<div class="highlight-wrap" data-rel="Shell"><figure class="iseeu highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">python3 vol.py -f 1.vmem windows.cmdline</span><br></pre></td></tr></table></figure></div>
 
 <p><img src="https://picture-1312836458.cos.ap-beijing.myqcloud.com/img/image-20230208092631375.png" alt="image-20230208092631375"></p>
 <p>查看ntlm</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">python3 vol.py -f 1.vmem windows.hashdump.Hashdump </span><br></pre></td></tr></table></figure>
+<div class="highlight-wrap" data-rel="Shell"><figure class="iseeu highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">python3 vol.py -f 1.vmem windows.hashdump.Hashdump </span><br></pre></td></tr></table></figure></div>
 
 <p><img src="https://picture-1312836458.cos.ap-beijing.myqcloud.com/img/image-20230208131637801.png" alt="image-20230208131637801"></p>
 <h2 id="ezWin-7zip"><a href="#ezWin-7zip" class="headerlink" title="ezWin - 7zip"></a>ezWin - 7zip</h2><p>经过上题可以看到桌面上有个flag.7z，提取</p>

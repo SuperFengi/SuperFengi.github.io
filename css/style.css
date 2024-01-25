@@ -1516,13 +1516,129 @@ article .content .caption {
 #categories .category-list .category-list-item .category-list-count:after {
   content: ")";
 }
+.highlight-wrap[data-rel]:hover {
+  transition: box-shadow 0.3s ease-in-out;
+  box-shadow: 0 0px 30px 0px rgba(0,0,0,0.4);
+}
+.highlight-wrap[data-rel] {
+  position: relative;
+  overflow: hidden;
+  border-radius: 10px;
+  box-shadow: 0 0px 10px 0px rgba(0,0,0,0.4);
+}
+.highlight-wrap[data-rel]::before {
+  content: attr(data-rel);
+  height: 38px;
+  line-height: 38px;
+  background: #1c1c1c;
+  color: #eff;
+  font-size: 16px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  font-weight: bold;
+  padding: 0px 80px;
+  text-indent: 15px;
+  float: left;
+}
+.highlight-wrap[data-rel]::after {
+  content: ' ';
+  position: absolute;
+  -webkit-border-radius: 50%;
+  border-radius: 50%;
+  background: #fc625d;
+  width: 12px;
+  height: 12px;
+  top: 0;
+  left: 20px;
+  margin-top: 13px;
+  -webkit-box-shadow: 20px 0px #fdbc40, 40px 0px #35cd4b;
+  box-shadow: 20px 0px #fdbc40, 40px 0px #35cd4b;
+  z-index: 3;
+}
+figure.highlight table::-webkit-scrollbar-thumb {
+  background: #121212;
+}
+figure.highlight pre .deletion {
+  color: #bf42bf;
+}
+figure.highlight pre .addition {
+  color: #105ede;
+}
+figure.highlight pre .meta {
+  color: #c792ea;
+}
+figure.highlight pre .comment {
+  color: #969896;
+}
+figure.highlight pre .variable,
+figure.highlight pre .attribute,
+figure.highlight pre .regexp,
+figure.highlight pre .ruby .constant,
+figure.highlight pre .xml .tag .title,
+figure.highlight pre .xml .pi,
+figure.highlight pre .xml .doctype,
+figure.highlight pre .html .doctype,
+figure.highlight pre .css .id,
+figure.highlight pre .tag .name,
+figure.highlight pre .css .class,
+figure.highlight pre .css .pseudo {
+  color: #ff5370;
+}
+figure.highlight pre .tag {
+  color: #89ddff;
+}
+figure.highlight pre .number,
+figure.highlight pre .preprocessor,
+figure.highlight pre .literal,
+figure.highlight pre .params,
+figure.highlight pre .constant,
+figure.highlight pre .command {
+  color: #f78c6c;
+}
+figure.highlight pre .built_in {
+  color: #ffcb6b;
+}
+figure.highlight pre .ruby .class .title,
+figure.highlight pre .css .rules .attribute,
+figure.highlight pre .string,
+figure.highlight pre .value,
+figure.highlight pre .inheritance,
+figure.highlight pre .header,
+figure.highlight pre .ruby .symbol,
+figure.highlight pre .xml .cdata,
+figure.highlight pre .special,
+figure.highlight pre .number,
+figure.highlight pre .formula {
+  color: #c3e88d;
+}
+figure.highlight pre .keyword,
+figure.highlight pre .title,
+figure.highlight pre .css .hexcolor {
+  color: #89ddff;
+}
+figure.highlight pre .function,
+figure.highlight pre .python .decorator,
+figure.highlight pre .python .title,
+figure.highlight pre .ruby .function .title,
+figure.highlight pre .ruby .title .keyword,
+figure.highlight pre .perl .sub,
+figure.highlight pre .javascript .title,
+figure.highlight pre .coffeescript .title {
+  color: #82aaff;
+}
+figure.highlight pre .tag .attr,
+figure.highlight pre .javascript .function {
+  color: #c792ea;
+}
 .highlight {
-  color: #585260;
-  background: #efecf4;
+  background: #1b1918;
+  color: #a8a19f;
 }
 .highlight .code .comment,
 .highlight .code .quote {
-  color: #655f6d;
+  color: #9c9491;
 }
 .highlight .code .variable,
 .highlight .code .template-variable,
@@ -1533,7 +1649,7 @@ article .content .caption {
 .highlight .code .link,
 .highlight .code .selector-id,
 .highlight .code .selector-class {
-  color: #be4678;
+  color: #f22c40;
 }
 .highlight .code .number,
 .highlight .code .meta,
@@ -1542,32 +1658,20 @@ article .content .caption {
 .highlight .code .literal,
 .highlight .code .type,
 .highlight .code .params {
-  color: #aa573c;
+  color: #df5320;
 }
 .highlight .code .string,
 .highlight .code .symbol,
 .highlight .code .bullet {
-  color: #2a9292;
+  color: #7b9726;
 }
 .highlight .code .title,
 .highlight .code .section {
-  color: #576ddb;
+  color: #407ee7;
 }
 .highlight .code .keyword,
 .highlight .code .selector-tag {
-  color: #955ae7;
-}
-.highlight .code .deletion,
-.highlight .code .addition {
-  color: #19171c;
-  display: inline-block;
-  width: 100%;
-}
-.highlight .code .deletion {
-  background-color: #be4678;
-}
-.highlight .code .addition {
-  background-color: #2a9292;
+  color: #6666ea;
 }
 .highlight .code .emphasis {
   font-style: italic;
@@ -1599,10 +1703,8 @@ code {
 }
 .highlight {
   overflow-x: auto;
-  margin: 1rem 0;
+  margin: 2rem 0 0 0;
   padding: 10px 15px;
-  border-radius: 4px;
-  background: #fafafa;
   font-family: "Menlo", "Meslo LG", monospace;
   -webkit-border-radius: 4px;
 }
@@ -1636,6 +1738,7 @@ code {
   opacity: 1;
 }
 .highlight .btn-copy {
+  top: 0.2rem;
   font-size: 1.2rem;
   position: absolute;
   right: 20px;
